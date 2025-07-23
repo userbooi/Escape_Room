@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://s8yjvpknwed"]
+
+[ext_resource type="TileSet" uid="uid://em18b7du1xn1" path="res://Tilemaps/furniture.tres" id="1_ccpiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46tfu"]
+size = Vector2(162, 196)
+
+[node name="Closet" type="Node2D"]
+
+[node name="Closet" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 18, 0, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 14, 0, 0, 0, 1, 0, 1, 0, 0, 0, 19, 0, 15, 0, 0, 0)
+tile_set = ExtResource("1_ccpiq")
+
+[node name="interactArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactArea"]
+position = Vector2(129, 156)
+shape = SubResource("RectangleShape2D_46tfu")

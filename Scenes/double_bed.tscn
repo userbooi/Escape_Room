@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=4 uid="uid://cyges47gcx5rj"]
+
+[ext_resource type="TileSet" uid="uid://em18b7du1xn1" path="res://Tilemaps/furniture.tres" id="1_fka2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si2ij"]
+size = Vector2(573, 395)
+
+[node name="DoubleBed" type="Node2D"]
+
+[node name="beds" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAEAAAAAAAIAAAABAAIAAAAAAAMAAAABAAMAAAABAAAAAAACAAAAAAABAAEAAAACAAEAAAABAAIAAAACAAIAAAABAAMAAAACAAMAAAACAAAAAAABAAAAAAACAAEAAAABAAEAAAACAAIAAAABAAIAAAACAAMAAAABAAMAAAADAAAAAAACAAAAAAADAAEAAAACAAEAAAADAAIAAAACAAIAAAADAAMAAAACAAMAAAA=")
+tile_set = ExtResource("1_fka2o")
+
+[node name="interactArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactArea"]
+position = Vector2(247.5, 288.5)
+shape = SubResource("RectangleShape2D_si2ij")
