@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://crmiaq0kstnlf"]
 
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_aq7eo"]
-[ext_resource type="PackedScene" uid="uid://cyges47gcx5rj" path="res://Scenes/double_bed.tscn" id="2_65i26"]
+[ext_resource type="PackedScene" uid="uid://cyges47gcx5rj" path="res://Scenes/AssetScenes/double_bed.tscn" id="2_65i26"]
 
 [node name="Map" type="Node2D"]
 

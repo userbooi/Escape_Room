@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://cqcglhjjxhg0e"]
+[gd_scene load_steps=3 format=3 uid="uid://cqcglhjjxhg0e"]
+
+[ext_resource type="PackedScene" uid="uid://crmiaq0kstnlf" path="res://Scenes/map.tscn" id="1_h1ppf"]
+[ext_resource type="PackedScene" uid="uid://30ukmxapnx63" path="res://Scenes/player.tscn" id="2_tn6y0"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_h1ppf")]
+
+[node name="Player" parent="." instance=ExtResource("2_tn6y0")]
+position = Vector2(453, 874)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(711, 7)
