@@ -57,7 +57,7 @@ radius = 122.801
 radius = 90.0347
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.35, 0.35)
 script = ExtResource("1_h84ni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

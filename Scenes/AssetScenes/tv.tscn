@@ -1,18 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdstohlx2h4tb"]
+[gd_scene load_steps=3 format=4 uid="uid://bdstohlx2h4tb"]
 
 [ext_resource type="TileSet" uid="uid://em18b7du1xn1" path="res://Tilemaps/furniture.tres" id="1_4vi47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pt24"]
-size = Vector2(143, 108)
+size = Vector2(274, 148)
 
 [node name="TV" type="Node2D"]
 
+[node name="Container" type="Node2D" parent="."]
+position = Vector2(-38, -57)
+metadata/_edit_group_ = true
+
+[node name="Table" type="TileMapLayer" parent="Container"]
+tile_map_data = PackedByteArray("AAD//wAAAAAQAAUAAAD//wEAAAAQAAYAAAAAAAAAAAARAAUAAAAAAAEAAAARAAYAAAABAAAAAAASAAUAAAABAAEAAAASAAYAAAACAAAAAAATAAUAAAACAAEAAAATAAYAAAA=")
+tile_set = ExtResource("1_4vi47")
+
 [node name="TV" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 17, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAAATABEAAAA=")
 tile_set = ExtResource("1_4vi47")
 
 [node name="interactArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactArea"]
-position = Vector2(80.5, 91)
+position = Vector2(87, 111)
 shape = SubResource("RectangleShape2D_3pt24")
