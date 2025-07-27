@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwy4mkp5o2ceg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eitx5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+
+[node name="InteractPopUp" type="Control"]
+layout_mode = 3
+anchor_right = 0.243
+anchor_bottom = 0.403
+offset_right = 0.0639954
+offset_bottom = -0.144012
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -124.0
+offset_right = 143.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 12
+
+[node name="PopUpPrompt" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Interact"
+
+[node name="Panel" type="Panel" parent="GridContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PopUpIndicator" type="Label" parent="GridContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.5
+offset_right = 70.5
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_eitx5")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

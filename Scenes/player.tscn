@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://30ukmxapnx63"]
+[gd_scene load_steps=14 format=3 uid="uid://30ukmxapnx63"]
 
 [ext_resource type="Texture2D" uid="uid://cjjpm1srw6t25" path="res://Assets/player/pixil-frame-0.png" id="1_8mov5"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_h84ni"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrrod8s12uu4" path="res://Assets/player/pixil-frame-5.png" id="6_f8wcq"]
 [ext_resource type="Texture2D" uid="uid://ci1axotro7id8" path="res://Assets/player/pixil-frame-6.png" id="7_yxqix"]
 [ext_resource type="Texture2D" uid="uid://b2rld88iwryx6" path="res://Assets/player/pixil-frame-7.png" id="8_bivb2"]
+[ext_resource type="PackedScene" uid="uid://cwy4mkp5o2ceg" path="res://Scenes/interact_pop_up.tscn" id="10_s28d2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nyg4r"]
 animations = [{
@@ -68,14 +69,26 @@ frame_progress = 0.282749
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pepa1")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerInteractArea" type="Area2D" parent="."]
 position = Vector2(-2.38419e-07, 107.5)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractArea"]
 shape = SubResource("CircleShape2D_smpox")
 debug_color = Color(0.655324, 0.517118, 0, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
+
+[node name="InteractPopUp" parent="." instance=ExtResource("10_s28d2")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 25.7143
+offset_top = -251.429
+offset_right = 25.7783
+offset_bottom = -251.429
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_lock_ = true

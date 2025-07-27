@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 
+func _ready() -> void:
+	$InteractPopUp.visible = false
+
 func _process(delta: float) -> void:
 	var xdirection = Input.get_axis("left", "right")
 	var ydirection = Input.get_axis("up", "down")
@@ -43,3 +46,9 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.normalized() * SPEED
 
 	move_and_slide()
+	
+func connect_signal(node: Node2D) -> void:
+	node.connect("interact", Callable(self, "_on_interact_prompt"))
+	
+func _on_interact_prompt():
+	$InteractPopUp.visible = true
