@@ -13,8 +13,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for child_node in $Map/Furnitures.get_children():
-		$Player.connect_signal(child_node)
+	$InteractPopUp.visible = false
+	#for child_node in $Map/Furnitures.get_children():
+		#$Player.connect_signal(child_node)
 	#$Player.connect_signal(get_node("./Map/Furnitures/DoubleBed"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwy4mkp5o2ceg"]
+[gd_scene load_steps=3 format=3 uid="uid://cwy4mkp5o2ceg"]
+
+[ext_resource type="Script" path="res://Scenes/interact_pop_up.gd" id="1_nqr1c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eitx5"]
 bg_color = Color(1, 1, 1, 1)
@@ -16,6 +18,7 @@ offset_right = 0.0639954
 offset_bottom = -0.144012
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nqr1c")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
