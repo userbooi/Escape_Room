@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=4 uid="uid://bdstohlx2h4tb"]
+[gd_scene load_steps=4 format=4 uid="uid://bdstohlx2h4tb"]
 
 [ext_resource type="TileSet" uid="uid://em18b7du1xn1" path="res://Tilemaps/furniture.tres" id="1_4vi47"]
+[ext_resource type="Script" path="res://Scripts/furniture.gd" id="1_8ckp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pt24"]
 size = Vector2(274, 148)
 
 [node name="TV" type="Node2D"]
+script = ExtResource("1_8ckp1")
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(-38, -57)
@@ -24,3 +26,6 @@ tile_set = ExtResource("1_4vi47")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactArea"]
 position = Vector2(87, 111)
 shape = SubResource("RectangleShape2D_3pt24")
+
+[connection signal="area_entered" from="interactArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="interactArea" to="." method="_on_interact_area_area_exited"]

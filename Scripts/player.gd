@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 
+var taken = false
+
 func _ready() -> void:
 	$InteractPopUp.visible = false
 
@@ -49,6 +51,12 @@ func _physics_process(delta: float) -> void:
 	
 func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))
+	node.connect("exit_interact", Callable(self, "_on_exit_interact_prompt"))
 	
 func _on_interact_prompt():
 	$InteractPopUp.visible = true
+	taken = true
+	
+func _on_exit_interact_prompt():
+	$InteractPopUp.visible = false
+	taken = false

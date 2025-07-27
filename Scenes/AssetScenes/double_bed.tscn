@@ -20,3 +20,4 @@ position = Vector2(247.5, 288.5)
 shape = SubResource("RectangleShape2D_si2ij")
 
 [connection signal="area_entered" from="interactArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="interactArea" to="." method="_on_interact_area_area_exited"]

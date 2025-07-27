@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://crmiaq0kstnlf"]
 
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_aq7eo"]
-[ext_resource type="Script" path="res://Scenes/map.gd" id="1_eam8i"]
+[ext_resource type="Script" path="res://Scripts/map.gd" id="1_eam8i"]
 [ext_resource type="PackedScene" uid="uid://cyges47gcx5rj" path="res://Scenes/AssetScenes/double_bed.tscn" id="2_65i26"]
 [ext_resource type="PackedScene" uid="uid://dfdpao26f7cbc" path="res://Scenes/AssetScenes/plant_1.tscn" id="3_x8piw"]
 [ext_resource type="PackedScene" uid="uid://il3yai02lld7" path="res://Scenes/AssetScenes/plant_2.tscn" id="4_64x6h"]

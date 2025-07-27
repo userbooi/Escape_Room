@@ -1,5 +1,6 @@
 extends Node2D
 signal interact
+signal exit_interact
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,3 +16,7 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerInteractArea":
 		interact.emit()
 	#print($interactArea.get_overlapping_areas()[0].name)
+
+func _on_interact_area_area_exited(area: Area2D) -> void:
+	if area.name == "PlayerInteractArea":
+		exit_interact.emit()

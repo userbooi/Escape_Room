@@ -70,7 +70,7 @@ frame_progress = 0.282749
 shape = SubResource("CircleShape2D_pepa1")
 
 [node name="PlayerInteractArea" type="Area2D" parent="."]
-position = Vector2(-2.38419e-07, 107.5)
+position = Vector2(-5.71428, 134.286)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractArea"]
