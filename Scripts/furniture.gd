@@ -1,16 +1,23 @@
 extends Node2D
-signal interact
-signal exit_interact
+
+@export var furniture_name: String
+@export var player: CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	#print(get_parent().get_parent().get_node("../Dialogue").name)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func connect_signal():
+	player.connect("interact", Callable(self, "_do_something"))
+
+func _do_something(interacting_object):
+	if furniture_name == interacting_object:
+		print("hello")
 
 #func _on_interact_area_area_entered(area: Area2D) -> void:
 	#if area.name == "PlayerInteractArea":

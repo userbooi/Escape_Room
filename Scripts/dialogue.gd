@@ -1,0 +1,38 @@
+extends Control
+signal done_dia
+
+@export var player: CharacterBody2D
+
+var camera: Camera2D
+var x_coord: int
+var y_coord: int
+
+var lines: Array
+var line_index: int
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	camera = player.get_node("./Camera2D")
+	x_coord = camera.get_screen_center_position().x-get_viewport_rect().size.x/2
+	y_coord = camera.get_screen_center_position().y-get_viewport_rect().size.y/2
+	
+	position = Vector2(x_coord, y_coord)
+
+func _on_continue_button_pressed() -> void:
+	if line_index != lines.size()-1:
+		line_index += 1
+		assign_line()
+	else:
+		done_dia.emit()
+		visible = false
+
+func assign_line():
+	$Panel/NinePatchRect/RichTextLabel.text = lines[line_index]
+	
+func set_lines(new_lines):
+	lines = new_lines
+	line_index = 0
