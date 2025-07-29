@@ -17,11 +17,12 @@ extends Node2D
 #
 #============================#
 
+var special_events = ["t", "ss", "clo", "sp"]
+var event_num = 0
+var found = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Dialogue.visible = false
-	$InteractPopUp.visible = false
-	
 	connect_signals()
 	#$Player.connect_signal(get_node("./Map/Furnitures/DoubleBed"))
 

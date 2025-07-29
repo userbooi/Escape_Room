@@ -26,51 +26,65 @@ tile_set = ExtResource("1_aq7eo")
 [node name="DoubleBed" parent="Furnitures" instance=ExtResource("2_65i26")]
 position = Vector2(315, -55)
 furniture_name = "DB"
+normal_lines = Array[String](["Its an unfamiliar bed. Quite big though."])
 
 [node name="Plant11" parent="Furnitures" instance=ExtResource("3_x8piw")]
 position = Vector2(1663, 2)
 furniture_name = "p1"
+normal_lines = Array[String](["Its a plant"])
 
 [node name="Plant12" parent="Furnitures" instance=ExtResource("3_x8piw")]
 position = Vector2(30, 4)
 furniture_name = "p2"
+normal_lines = Array[String](["Its a plant"])
 
 [node name="Plant13" parent="Furnitures" instance=ExtResource("3_x8piw")]
 position = Vector2(32, 1011)
 furniture_name = "p3"
+normal_lines = Array[String](["Its a plant"])
 
 [node name="Plant2" parent="Furnitures" instance=ExtResource("4_64x6h")]
 position = Vector2(1670, 1021)
 furniture_name = "sp"
+normal_lines = Array[String](["Its a plant!"])
+special_lines = Array[String]([""])
 
 [node name="Closet" parent="Furnitures" instance=ExtResource("5_clil2")]
 position = Vector2(856, -14)
 furniture_name = "clo"
+normal_lines = Array[String](["The clothes inside have a strange stench..."])
 
 [node name="TV" parent="Furnitures" instance=ExtResource("11_35j5g")]
 position = Vector2(652, 1218)
 rotation = 3.14159
 furniture_name = "tv"
+normal_lines = Array[String](["Endless Buffer...."])
 
 [node name="Seat" parent="Furnitures" instance=ExtResource("12_f244y")]
 position = Vector2(1061, 751)
 rotation = 4.71239
 furniture_name = "s1"
+normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
 
 [node name="Seat2" parent="Furnitures" instance=ExtResource("12_f244y")]
 position = Vector2(1283, 462)
 furniture_name = "ss"
+normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
 
 [node name="Seat3" parent="Furnitures" instance=ExtResource("12_f244y")]
 position = Vector2(1414, 895)
 rotation = 3.14159
 furniture_name = "s2"
+normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
 
 [node name="Seat4" parent="Furnitures" instance=ExtResource("12_f244y")]
 position = Vector2(1644, 622)
 rotation = 1.5708
 furniture_name = "s3"
+normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
 
 [node name="RecTable" parent="Furnitures" instance=ExtResource("9_2lm2q")]
 position = Vector2(1099, 562)
 furniture_name = "t"
+normal_lines = Array[String](["There are rotting food and crumbs on the table. Even dried gum on the underside"])
+special_lines = Array[String](["Among the gum stuck on the underside of the table, you found a [b]note[/b] stuck to it[br]It reads:", "[i]The seat pointing at noon[/i]"])

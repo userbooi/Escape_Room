@@ -87,7 +87,7 @@ theme_override_font_sizes/mono_font_size = 25
 theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
-text = "[b]bold [i]bold italic[/i] italic[/b]asdsadasdsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadasdsadsa"
+text = "[b]bold [i]bold italic[/i] italic[/b]asdsadasdsadsadsa[br]dsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadasdsadsa"
 
 [node name="continue_button" type="Button" parent="."]
 layout_mode = 0

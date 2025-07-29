@@ -23,8 +23,14 @@ func _process(delta: float) -> void:
 func interacting():
 	if Input.is_action_just_pressed("interact") and interactable:
 		get_node("../Dialogue").visible = true
+		
 		var furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
-		interact.emit(furn_name)
+		if get_parent().found:
+			print("hello")
+			if furn_name == get_parent().special_events[get_parent().event_num+1]:
+				get_parent().event_num += 1
+		interact.emit(furn_name, furn_name==get_parent().special_events[get_parent().event_num])
+		
 		$AnimatedSprite2D.play("Idle")
 		movable = false
 		interactable = false
@@ -88,7 +94,7 @@ func connect_signal(node: Node2D) -> void:
 #func _on_interact_prompt():
 	#get_node("../InteractPopUp").visible = true
 	#taken = true
-	#
+
 #func _on_exit_interact_prompt():
 	#get_node("../InteractPopUp").visible = false
 	#taken = false

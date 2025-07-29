@@ -3,9 +3,11 @@ extends Node2D
 @export var furniture_name: String
 @export var player: CharacterBody2D
 
+@export var normal_lines: Array[String]
+@export var special_lines: Array[String]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#print(get_parent().get_parent().get_node("../Dialogue").name)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,11 +15,15 @@ func _process(delta: float) -> void:
 	pass
 
 func connect_signal():
-	player.connect("interact", Callable(self, "_do_something"))
+	player.connect("interact", Callable(self, "_init_dia"))
 
-func _do_something(interacting_object):
+func _init_dia(interacting_object, trigger_event):
 	if furniture_name == interacting_object:
-		get_parent().get_parent().get_node("../Dialogue").set_lines(["hello", "next", "wow", "last"])
+		if trigger_event:
+			get_parent().get_parent().get_node("../Dialogue").set_lines(special_lines)
+			get_parent().get_parent().get_parent().found = true
+		else:
+			get_parent().get_parent().get_node("../Dialogue").set_lines(normal_lines)
 
 #func _on_interact_area_area_entered(area: Area2D) -> void:
 	#if area.name == "PlayerInteractArea":
