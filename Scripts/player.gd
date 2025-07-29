@@ -5,6 +5,7 @@ signal interact
 
 var movable = true
 var interactable = false
+var furn_name
 
 func _ready() -> void:
 	pass
@@ -24,10 +25,11 @@ func interacting():
 	if Input.is_action_just_pressed("interact") and interactable:
 		get_node("../Dialogue").visible = true
 		
-		var furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
+		furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
 		if get_parent().found:
 			if furn_name == get_parent().special_events[get_parent().event_num+1]:
 				get_parent().event_num += 1
+		get_parent().curr_state = get_parent().STATES.DIALOGUE
 		interact.emit(furn_name, furn_name==get_parent().special_events[get_parent().event_num])
 		
 		$AnimatedSprite2D.play("Idle")
@@ -37,6 +39,7 @@ func interacting():
 func _return_from_dia():
 	movable = true
 	interactable = true
+	get_parent().curr_state = get_parent().STATES.PLAYING
 
 func change_anim(xdirection, ydirection):
 	if xdirection or ydirection:

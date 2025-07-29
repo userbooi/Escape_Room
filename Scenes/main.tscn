@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqcglhjjxhg0e"]
+[gd_scene load_steps=7 format=3 uid="uid://cqcglhjjxhg0e"]
 
 [ext_resource type="PackedScene" uid="uid://crmiaq0kstnlf" path="res://Scenes/map.tscn" id="1_h1ppf"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_v4q1k"]
 [ext_resource type="PackedScene" uid="uid://30ukmxapnx63" path="res://Scenes/player.tscn" id="2_tn6y0"]
 [ext_resource type="PackedScene" uid="uid://cwy4mkp5o2ceg" path="res://Scenes/interact_pop_up.tscn" id="3_o4h06"]
 [ext_resource type="PackedScene" uid="uid://br60xis125v3m" path="res://Scenes/dialogue.tscn" id="5_epcgl"]
+[ext_resource type="PackedScene" uid="uid://w3256swech3s" path="res://Scenes/end_screen.tscn" id="6_d23hh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_v4q1k")
@@ -21,6 +22,9 @@ player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_tn6y0")]
 position = Vector2(1043, 785)
+
+[node name="EndScreen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_d23hh")]
+player = NodePath("../Player")
 
 [node name="Dialogue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_epcgl")]
 offset_left = 465.0
