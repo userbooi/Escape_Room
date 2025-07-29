@@ -25,8 +25,13 @@ func interacting():
 		get_node("../Dialogue").visible = true
 		var furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
 		interact.emit(furn_name)
+		$AnimatedSprite2D.play("Idle")
 		movable = false
 		interactable = false
+		
+func _return_from_dia():
+	movable = true
+	interactable = true
 
 func change_anim(xdirection, ydirection):
 	if xdirection or ydirection:

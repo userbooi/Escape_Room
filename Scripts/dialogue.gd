@@ -29,10 +29,11 @@ func _on_continue_button_pressed() -> void:
 	else:
 		done_dia.emit()
 		visible = false
-
-func assign_line():
-	$Panel/NinePatchRect/RichTextLabel.text = lines[line_index]
 	
 func set_lines(new_lines):
 	lines = new_lines
 	line_index = 0
+	assign_line()
+
+func assign_line():
+	$Panel/NinePatchRect/RichTextLabel.text = lines[line_index]

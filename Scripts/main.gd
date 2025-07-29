@@ -8,7 +8,6 @@ extends Node2D
 #		- find the plant that looks different
 #		- finish
 #
-#
 #================================================================#
 
 #============================#
@@ -34,4 +33,6 @@ func connect_signals():
 	for child_node in $Map/Furnitures.get_children():
 		child_node.player = $Player
 		child_node.connect_signal()
+	$Dialogue.done_dia.connect(Callable($Player, "_return_from_dia"))
+	
 	

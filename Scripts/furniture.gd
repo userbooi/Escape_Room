@@ -17,7 +17,7 @@ func connect_signal():
 
 func _do_something(interacting_object):
 	if furniture_name == interacting_object:
-		print("hello")
+		get_parent().get_parent().get_node("../Dialogue").set_lines(["hello", "next", "wow", "last"])
 
 #func _on_interact_area_area_entered(area: Area2D) -> void:
 	#if area.name == "PlayerInteractArea":
