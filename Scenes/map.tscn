@@ -47,12 +47,13 @@ normal_lines = Array[String](["Its a plant"])
 position = Vector2(1670, 1021)
 furniture_name = "sp"
 normal_lines = Array[String](["Its a plant!"])
-special_lines = Array[String]([""])
+special_lines = Array[String](["Inside the plant with a different green than the others", "You find a key out of this place"])
 
 [node name="Closet" parent="Furnitures" instance=ExtResource("5_clil2")]
 position = Vector2(856, -14)
 furniture_name = "clo"
 normal_lines = Array[String](["The clothes inside have a strange stench..."])
+special_lines = Array[String](["You pull open a hidden compartment at the back of the closet.", "You find a paper colored with a wierd green color"])
 
 [node name="TV" parent="Furnitures" instance=ExtResource("11_35j5g")]
 position = Vector2(652, 1218)
@@ -70,6 +71,7 @@ normal_lines = Array[String](["The chair is falling apart. some nails are missin
 position = Vector2(1283, 462)
 furniture_name = "ss"
 normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
+special_lines = Array[String](["Inside a hole where a nail used to be, you hear a voice[br]it whispers:", "[i]A hidden panel where garments live[/i]"])
 
 [node name="Seat3" parent="Furnitures" instance=ExtResource("12_f244y")]
 position = Vector2(1414, 895)

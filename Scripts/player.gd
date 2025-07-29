@@ -26,7 +26,6 @@ func interacting():
 		
 		var furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
 		if get_parent().found:
-			print("hello")
 			if furn_name == get_parent().special_events[get_parent().event_num+1]:
 				get_parent().event_num += 1
 		interact.emit(furn_name, furn_name==get_parent().special_events[get_parent().event_num])
