@@ -9,6 +9,7 @@ enum STATES {PLAYING, DIALOGUE, FINISHED}
 @export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
 @export var event_num = 0
 @export var found = false
+var DEBUG = true
 
 # Level Layout Format: {name: [position, rotation, [special lines]]}
 var level1_layout = {

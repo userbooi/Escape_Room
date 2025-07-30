@@ -13,6 +13,10 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	handle_movement()
+	handle_interactions()
+
+func handle_movement():
 	var xdirection = Input.get_axis("left", "right")
 	var ydirection = Input.get_axis("up", "down")
 	
@@ -20,9 +24,11 @@ func _process(delta: float) -> void:
 		change_anim(xdirection, ydirection)
 		change_dir(xdirection, ydirection)
 		
+func handle_interactions():
+	if movable:
 		check_interactable()
 	interacting()
-	
+
 func interacting():
 	if Input.is_action_just_pressed("interact") and interactable:
 		get_node("../Dialogue").visible = true
@@ -37,6 +43,9 @@ func interacting():
 		$AnimatedSprite2D.play("Idle")
 		movable = false
 		interactable = false
+	if Input.is_action_just_pressed("deleteAll") and game_settings.DEBUG:
+		for node in get_tree().get_nodes_in_group("furnitures"):
+			node.queue_free()
 		
 func _return_from_dia():
 	movable = true

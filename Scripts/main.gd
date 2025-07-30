@@ -48,21 +48,12 @@ func _process(delta: float) -> void:
 		game_settings.curr_state = game_settings.STATES.FINISHED
 	
 func connect_signals():
-	#for child_node in $Map/Furnitures.get_children():
-		#child_node.player = $Player
-		#child_node.connect_signal()
 	$Dialogue.done_dia.connect(Callable($Player, "_return_from_dia"))
 	connect("finish_game", Callable($EndScreen, "_play_animation"))
 	
 func set_up_level(level):
 	for key in game_settings.level1_layout:
-		#pass
 		var curr_furniture:Node2D = Furnitures[key.substr(0, 4)].instantiate()
-		
-		#print(key)
-		#for info in game_settings.level1_layout[key]:
-			#print(info)
-		#print()
 		
 		curr_furniture.furniture_name = key
 		curr_furniture.set_location(game_settings.level1_layout[key][0], game_settings.level1_layout[key][1])

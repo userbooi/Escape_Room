@@ -17,8 +17,6 @@ func _process(delta: float) -> void:
 	pass
 
 func set_location(pos, rot):
-	print(furniture_name)
-	
 	position = pos
 	rotation = rot
 
