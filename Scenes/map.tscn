@@ -1,14 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://crmiaq0kstnlf"]
+[gd_scene load_steps=3 format=4 uid="uid://crmiaq0kstnlf"]
 
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_aq7eo"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_eam8i"]
-[ext_resource type="PackedScene" uid="uid://cyges47gcx5rj" path="res://Scenes/AssetScenes/double_bed.tscn" id="2_65i26"]
-[ext_resource type="PackedScene" uid="uid://dfdpao26f7cbc" path="res://Scenes/AssetScenes/plant_1.tscn" id="3_x8piw"]
-[ext_resource type="PackedScene" uid="uid://il3yai02lld7" path="res://Scenes/AssetScenes/plant_2.tscn" id="4_64x6h"]
-[ext_resource type="PackedScene" uid="uid://s8yjvpknwed" path="res://Scenes/AssetScenes/closet.tscn" id="5_clil2"]
-[ext_resource type="PackedScene" uid="uid://cg7iabnb8y4pi" path="res://Scenes/AssetScenes/rec_table.tscn" id="9_2lm2q"]
-[ext_resource type="PackedScene" uid="uid://bdstohlx2h4tb" path="res://Scenes/AssetScenes/tv.tscn" id="11_35j5g"]
-[ext_resource type="PackedScene" uid="uid://04316d3phcra" path="res://Scenes/AssetScenes/seat.tscn" id="12_f244y"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_eam8i")
@@ -22,67 +15,3 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAABAAAAAAAEAAEAAAACAAAAAAAEAAE
 tile_set = ExtResource("1_aq7eo")
 
 [node name="Furnitures" type="Node2D" parent="."]
-
-[node name="DoubleBed" parent="Furnitures" instance=ExtResource("2_65i26")]
-position = Vector2(315, -55)
-furniture_name = "DB"
-normal_lines = Array[String](["Its an unfamiliar bed. Quite big though."])
-
-[node name="Plant11" parent="Furnitures" instance=ExtResource("3_x8piw")]
-position = Vector2(1663, 2)
-furniture_name = "p1"
-
-[node name="Plant12" parent="Furnitures" instance=ExtResource("3_x8piw")]
-position = Vector2(30, 4)
-furniture_name = "p2"
-
-[node name="Plant13" parent="Furnitures" instance=ExtResource("3_x8piw")]
-position = Vector2(32, 1011)
-furniture_name = "p3"
-
-[node name="Plant2" parent="Furnitures" instance=ExtResource("4_64x6h")]
-position = Vector2(1670, 1021)
-furniture_name = "sp"
-normal_lines = Array[String](["Its a plant!"])
-special_lines = Array[String](["Inside the plant with a different green than the others", "You find a key out of this place"])
-
-[node name="Closet" parent="Furnitures" instance=ExtResource("5_clil2")]
-position = Vector2(856, -14)
-furniture_name = "clo"
-normal_lines = Array[String](["The clothes inside have a strange stench..."])
-special_lines = Array[String](["You pull open a hidden compartment at the back of the closet.", "You find a paper colored with a wierd green color"])
-
-[node name="TV" parent="Furnitures" instance=ExtResource("11_35j5g")]
-position = Vector2(652, 1218)
-rotation = 3.14159
-furniture_name = "tv"
-
-[node name="Seat" parent="Furnitures" instance=ExtResource("12_f244y")]
-position = Vector2(1061, 751)
-rotation = 4.71239
-furniture_name = "s1"
-normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
-
-[node name="Seat2" parent="Furnitures" instance=ExtResource("12_f244y")]
-position = Vector2(1283, 462)
-furniture_name = "ss"
-normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
-special_lines = Array[String](["Inside a hole where a nail used to be, you hear a voice[br]it whispers:", "[i]A hidden panel where garments live[/i]"])
-
-[node name="Seat3" parent="Furnitures" instance=ExtResource("12_f244y")]
-position = Vector2(1414, 895)
-rotation = 3.14159
-furniture_name = "s2"
-normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
-
-[node name="Seat4" parent="Furnitures" instance=ExtResource("12_f244y")]
-position = Vector2(1644, 622)
-rotation = 1.5708
-furniture_name = "s3"
-normal_lines = Array[String](["The chair is falling apart. some nails are missing"])
-
-[node name="RecTable" parent="Furnitures" instance=ExtResource("9_2lm2q")]
-position = Vector2(1099, 562)
-furniture_name = "t"
-normal_lines = Array[String](["There are rotting food and crumbs on the table. Even dried gum on the underside"])
-special_lines = Array[String](["Among the gum stuck on the underside of the table, you found a [b]note[/b] stuck to it[br]It reads:", "[i]The seat pointing at noon[/i]"])

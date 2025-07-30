@@ -16,6 +16,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func set_location(pos, rot):
+	print(furniture_name)
+	
+	position = pos
+	rotation = rot
+
 func connect_signal():
 	player.connect("interact", Callable(self, "_init_dia"))
 
