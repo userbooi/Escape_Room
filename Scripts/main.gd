@@ -1,6 +1,8 @@
 extends Node2D
 signal finish_game
 
+var game_settings = preload("res://game_setting/game_setting.tres")
+
 #================================================================#
 #	Plans for test level:
 #		- first look at the table
@@ -18,24 +20,17 @@ signal finish_game
 #
 #============================#
 
-var special_events = ["t", "ss", "clo", "sp"]
-var event_num = 0
-var found = false
-
-enum STATES {PLAYING, DIALOGUE, FINISHED}
-var curr_state = STATES.PLAYING
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_signals()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if event_num == special_events.size()-1 and curr_state == STATES.PLAYING:
+	if game_settings.event_num == game_settings.special_events.size()-1 and game_settings.curr_state == game_settings.STATES.PLAYING:
 		finish_game.emit()
 		$Player.interactable = false
 		$Player.movable = false
-		curr_state = STATES.FINISHED
+		game_settings.curr_state = game_settings.STATES.FINISHED
 	
 func connect_signals():
 	for child_node in $Map/Furnitures.get_children():

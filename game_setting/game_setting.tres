@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameSettings" load_steps=2 format=3 uid="uid://d4dnaocc70nkg"]
+
+[ext_resource type="Script" path="res://Scripts/game_setting.gd" id="1_ejmar"]
+
+[resource]
+script = ExtResource("1_ejmar")
+level = 1

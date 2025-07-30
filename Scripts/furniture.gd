@@ -6,6 +6,8 @@ extends Node2D
 @export var normal_lines: Array[String]
 @export var special_lines: Array[String]
 
+var game_settings = preload("res://game_setting/game_setting.tres")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -21,7 +23,7 @@ func _init_dia(interacting_object, trigger_event):
 	if furniture_name == interacting_object:
 		if trigger_event:
 			get_parent().get_parent().get_node("../Dialogue").set_lines(special_lines)
-			get_parent().get_parent().get_parent().found = true
+			game_settings.found = true
 		else:
 			get_parent().get_parent().get_node("../Dialogue").set_lines(normal_lines)
 

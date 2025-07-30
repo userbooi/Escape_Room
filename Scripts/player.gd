@@ -3,9 +3,11 @@ signal interact
 
 @export var SPEED = 300.0
 
+
 var movable = true
 var interactable = false
 var furn_name
+var game_settings = preload("res://game_setting/game_setting.tres")
 
 func _ready() -> void:
 	pass
@@ -26,11 +28,11 @@ func interacting():
 		get_node("../Dialogue").visible = true
 		
 		furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
-		if get_parent().found:
-			if furn_name == get_parent().special_events[get_parent().event_num+1]:
-				get_parent().event_num += 1
-		get_parent().curr_state = get_parent().STATES.DIALOGUE
-		interact.emit(furn_name, furn_name==get_parent().special_events[get_parent().event_num])
+		if game_settings.found:
+			if furn_name == game_settings.special_events[game_settings.event_num+1]:
+				game_settings.event_num += 1
+		game_settings.curr_state = game_settings.STATES.DIALOGUE
+		interact.emit(furn_name, furn_name==game_settings.special_events[game_settings.event_num])
 		
 		$AnimatedSprite2D.play("Idle")
 		movable = false
@@ -39,7 +41,7 @@ func interacting():
 func _return_from_dia():
 	movable = true
 	interactable = true
-	get_parent().curr_state = get_parent().STATES.PLAYING
+	game_settings.curr_state = game_settings.STATES.PLAYING
 
 func change_anim(xdirection, ydirection):
 	if xdirection or ydirection:
