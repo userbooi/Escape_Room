@@ -8,6 +8,7 @@ size = Vector2(176, 356)
 
 [node name="SingleBed" type="Node2D"]
 script = ExtResource("1_kkqrf")
+normal_lines = Array[String](["An unfamiliar bed. It is quite narrow...", "However, it looks rather comfy"])
 
 [node name="Bed" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAANAAAAAAAAAAEAAAANAAEAAAAAAAIAAAANAAIAAAAAAAMAAAANAAMAAAABAAAAAAAOAAAAAAABAAEAAAAOAAEAAAABAAIAAAAOAAIAAAABAAMAAAAOAAMAAAA=")

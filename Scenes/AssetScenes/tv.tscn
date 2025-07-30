@@ -8,6 +8,7 @@ size = Vector2(274, 148)
 
 [node name="TV" type="Node2D"]
 script = ExtResource("1_8ckp1")
+normal_lines = Array[String](["Endless Buffer...."])
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(-38, -57)

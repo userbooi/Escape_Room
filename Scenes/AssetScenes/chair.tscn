@@ -8,6 +8,7 @@ size = Vector2(158, 135)
 
 [node name="Chair" type="Node2D"]
 script = ExtResource("1_1ppvy")
+normal_lines = Array[String](["The grime makes this once comfy chair digusting...", "However, it would be nice to take a seat..."])
 
 [node name="Chair" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 16, 0, 0, 0)

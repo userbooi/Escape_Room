@@ -31,17 +31,14 @@ normal_lines = Array[String](["Its an unfamiliar bed. Quite big though."])
 [node name="Plant11" parent="Furnitures" instance=ExtResource("3_x8piw")]
 position = Vector2(1663, 2)
 furniture_name = "p1"
-normal_lines = Array[String](["Its a plant"])
 
 [node name="Plant12" parent="Furnitures" instance=ExtResource("3_x8piw")]
 position = Vector2(30, 4)
 furniture_name = "p2"
-normal_lines = Array[String](["Its a plant"])
 
 [node name="Plant13" parent="Furnitures" instance=ExtResource("3_x8piw")]
 position = Vector2(32, 1011)
 furniture_name = "p3"
-normal_lines = Array[String](["Its a plant"])
 
 [node name="Plant2" parent="Furnitures" instance=ExtResource("4_64x6h")]
 position = Vector2(1670, 1021)
@@ -59,7 +56,6 @@ special_lines = Array[String](["You pull open a hidden compartment at the back o
 position = Vector2(652, 1218)
 rotation = 3.14159
 furniture_name = "tv"
-normal_lines = Array[String](["Endless Buffer...."])
 
 [node name="Seat" parent="Furnitures" instance=ExtResource("12_f244y")]
 position = Vector2(1061, 751)

@@ -8,6 +8,7 @@ size = Vector2(162, 196)
 
 [node name="Closet" type="Node2D"]
 script = ExtResource("1_skvn7")
+normal_lines = Array[String](["The clothes inside have a strange stench...", "You don't even want to imagine where they might have been"])
 
 [node name="Closet" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 18, 0, 15, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 14, 0, 0, 0, 1, 0, 1, 0, 0, 0, 19, 0, 15, 0, 0, 0)
