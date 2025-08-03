@@ -21,12 +21,10 @@ func invis():
 		
 func vis():
 	visible = true
-	$ColorRect.self_modulate.a = 1
+	$TextureRect.self_modulate.a = 1
 	$Label.self_modulate.a = 1
 	
 func show_buttons() -> void:
 	$AnimationPlayer.play("show_buttons")
 	await get_tree().create_timer(1).timeout
-	for node in get_children():
-		if "Level" in node.name:
-			node.disabled = false
+	$Level1.enable_level_buttons()

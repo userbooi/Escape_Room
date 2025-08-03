@@ -1,10 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://cb6juypjv7e0i"]
+[gd_scene load_steps=24 format=4 uid="uid://cb6juypjv7e0i"]
 
 [ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="1_eh6sm"]
 [ext_resource type="Script" path="res://Scenes/UI/level_select.gd" id="1_lx0vq"]
+[ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="2_4g4vp"]
 [ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="2_ar8n8"]
 [ext_resource type="Script" path="res://Scripts/level_button.gd" id="2_b4pv0"]
 [ext_resource type="StyleBox" uid="uid://dwrw5p2dh130h" path="res://Styles/new_style_box_flat.tres" id="4_nq6mf"]
+
+[sub_resource type="Gradient" id="Gradient_yicnn"]
+offsets = PackedFloat32Array(0, 0.668831)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8eom6"]
+gradient = SubResource("Gradient_yicnn")
+fill = 1
+fill_from = Vector2(0.513761, 0.509174)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryf7v"]
 
@@ -32,45 +42,6 @@ bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qili3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qk7pl"]
-
-[sub_resource type="Animation" id="Animation_a6qj0"]
-resource_name = "show_buttons"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Level1:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Level2:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Level3:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_73nkk"]
 length = 0.001
@@ -111,6 +82,45 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_a6qj0"]
+resource_name = "show_buttons"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o4pem"]
 _data = {
 "RESET": SubResource("Animation_73nkk"),
@@ -126,11 +136,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lx0vq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="TileMapLayer" parent="Background"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAEAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAEAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAEAAAAAAABAAEAAAAEAAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAEAAAAAAABAAIAAAAAAAAAAAACAAIAAAAEAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAEAAAAAAAGAAIAAAAEAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAEAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAEAAAAAAAAAAMAAAAEAAAAAAAAAAQAAAAEAAAAAAABAAQAAAAEAAAAAAAGAAQAAAAEAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAEAAAAAAACAAQAAAAEAAAAAAAFAAQAAAAEAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAA=")
+tile_set = ExtResource("2_4g4vp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1273.0
-offset_bottom = 739.0
-color = Color(0, 0, 0, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_8eom6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

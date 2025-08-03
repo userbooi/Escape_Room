@@ -1,4 +1,5 @@
 extends Control
+signal back_to_start
 
 @export var player: CharacterBody2D
 var camera
@@ -27,3 +28,8 @@ func invis():
 	visible = false
 	$ColorRect.self_modulate.a = 0
 	$Label.self_modulate.a = 0
+	$Button.visible = false
+
+
+func _on_button_pressed() -> void:
+	back_to_start.emit()

@@ -134,12 +134,12 @@ visible = false
 visible = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(711, 7)
+position = Vector2(1002, 628)
 
 [node name="TransitionRect" type="ColorRect" parent="."]
 offset_left = -1952.0
 offset_top = -12.0
-offset_bottom = 1092.0
+offset_bottom = 3330.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

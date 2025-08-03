@@ -10,7 +10,7 @@ var furn_name
 var game_settings = preload("res://game_setting/game_setting.tres")
 
 func _ready() -> void:
-	position = Vector2(808, 296)
+	reset_pos()
 
 func _process(delta: float) -> void:
 	handle_movement()
@@ -99,6 +99,15 @@ func _physics_process(delta: float) -> void:
 
 	if movable:
 		move_and_slide()
+		
+func reset_pos():
+	position = Vector2(808, 296)
+		
+func set_camera_limits(room):
+	$Camera2D.limit_left = game_settings.level1_camera_limit[room][0]
+	$Camera2D.limit_top = game_settings.level1_camera_limit[room][1]
+	$Camera2D.limit_right = game_settings.level1_camera_limit[room][2]
+	$Camera2D.limit_bottom = game_settings.level1_camera_limit[room][3]
 	
 func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))

@@ -59,6 +59,7 @@ radius = 90.0347
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_h84ni")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nyg4r")
@@ -77,5 +78,5 @@ shape = SubResource("CircleShape2D_smpox")
 debug_color = Color(0.655324, 0.517118, 0, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
+limit_smoothed = true
+position_smoothing_enabled = true

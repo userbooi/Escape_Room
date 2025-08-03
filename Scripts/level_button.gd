@@ -21,3 +21,8 @@ func disable_level_buttons() -> void:
 	for node in get_parent().get_children():
 		if "Level" in node.name:
 			node.disabled = true
+			
+func enable_level_buttons() -> void:
+	for node in get_parent().get_children():
+		if "Level" in node.name:
+			node.disabled = false

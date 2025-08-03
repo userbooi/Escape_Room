@@ -4,11 +4,22 @@ class_name GameSettings
 
 enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 
+#============================    DEFAULT SETTINGS    ===========================#
+#@export var level = 1
+#@export var curr_state = STATES.START
+#@export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
+#@export var event_num = 0
+#@export var found = false
+#@export var curr_room = "Bedroom"
+#var DEBUG = false
+
+#===========================    TEST SETTINGS    ========================#
 @export var level = 1
-@export var curr_state = STATES.START
+@export var curr_state = STATES.PLAYING
 @export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
 @export var event_num = 0
 @export var found = false
+@export var curr_room = "Bedroom"
 var DEBUG = true
 
 # Level Layout Format: {name: [position, rotation, [special lines]]}
@@ -25,4 +36,9 @@ var level1_layout = {
 	"Seat3":[Vector2(1414, 895), PI, []],
 	"Seat4":[Vector2(1644, 622), PI/2, []],
 	"ReTa1":[Vector2(1099, 562), 0, ["Among the gum stuck on the underside of the table, you found a [b]note[/b] stuck to it[br]It reads:", "[i]The seat pointing at noon[/i]"]]
-	}
+}
+
+# camera limit format: {room-name: [left, top, right, bottom]}
+var level1_camera_limit = {
+	"Bedroom": [0, 0, 1913, 1272]
+}
