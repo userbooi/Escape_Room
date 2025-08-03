@@ -14,4 +14,10 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	print(level_num)
+	disable_level_buttons()
+	load_level.emit(level_num)
+	
+func disable_level_buttons() -> void:
+	for node in get_parent().get_children():
+		if "Level" in node.name:
+			node.disabled = true

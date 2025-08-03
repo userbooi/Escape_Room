@@ -10,7 +10,7 @@ var furn_name
 var game_settings = preload("res://game_setting/game_setting.tres")
 
 func _ready() -> void:
-	pass
+	position = Vector2(808, 296)
 
 func _process(delta: float) -> void:
 	handle_movement()

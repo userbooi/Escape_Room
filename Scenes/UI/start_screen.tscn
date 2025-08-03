@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://duh2arb75tynq"]
+[gd_scene load_steps=20 format=4 uid="uid://duh2arb75tynq"]
 
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_5ml24"]
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_tj7c4"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ci1axotro7id8" path="res://Assets/player/pixil-frame-6.png" id="8_yg443"]
 [ext_resource type="Texture2D" uid="uid://b2rld88iwryx6" path="res://Assets/player/pixil-frame-7.png" id="9_88r60"]
 [ext_resource type="Texture2D" uid="uid://dew535qow0au0" path="res://Assets/player/pixil-frame-8.png" id="10_qlinu"]
-[ext_resource type="Texture2D" uid="uid://xgeeal8li6qf" path="res://Assets/player/pixil-frame-9.png" id="11_j1m15"]
 [ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="12_hi0tq"]
 [ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="13_0wpwd"]
 
@@ -44,13 +43,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_qlinu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_j1m15")
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_xdr7h"]

@@ -53,6 +53,9 @@ func connect_signals():
 	$Dialogue.done_dia.connect(Callable($Player, "_return_from_dia"))
 	connect("finish_game", Callable($EndScreen, "_play_animation"))
 	$StartScreen.connect("select_levels", Callable(self, "_transition_to_levels"))
+	for node in $LevelSelect.get_children():
+		if "Level" in node.name:
+			node.connect("load_level", Callable(self, "_transition_to_play"))
 	
 func set_up_level(level):
 	for key in game_settings.level1_layout:
@@ -67,6 +70,8 @@ func set_up_level(level):
 		
 		curr_furniture.add_to_group("furnitures")
 		$Map/Furnitures.add_child(curr_furniture)
+	set_up_UI()
+	
 		
 func set_up_UI():
 	$EndScreen.invis()
@@ -85,4 +90,13 @@ func _transition_to_levels():
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
 	$LevelSelect.show_buttons()
+	
+func _transition_to_play(level):
+	game_settings.curr_state = game_settings.STATES.PLAYING
+	$AnimationPlayer.play("transition_in")
+	await get_tree().create_timer(0.25).timeout
+	set_up_level(level)
+	$Player.enable()
+	$AnimationPlayer.play("transition_out")
+	await get_tree().create_timer(0.25).timeout
 	
