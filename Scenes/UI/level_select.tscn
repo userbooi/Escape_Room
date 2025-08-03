@@ -1,0 +1,209 @@
+[gd_scene load_steps=21 format=3 uid="uid://cb6juypjv7e0i"]
+
+[ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="1_eh6sm"]
+[ext_resource type="Script" path="res://Scenes/UI/level_select.gd" id="1_lx0vq"]
+[ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="2_ar8n8"]
+[ext_resource type="Script" path="res://Scripts/level_button.gd" id="2_b4pv0"]
+[ext_resource type="StyleBox" uid="uid://dwrw5p2dh130h" path="res://Styles/new_style_box_flat.tres" id="4_nq6mf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryf7v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j78c8"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkyy2"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gf8gu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_safkx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68nne"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drh43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yspf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rht7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mtks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qili3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qk7pl"]
+
+[sub_resource type="Animation" id="Animation_a6qj0"]
+resource_name = "show_buttons"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_73nkk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4pem"]
+_data = {
+"RESET": SubResource("Animation_73nkk"),
+"show_buttons": SubResource("Animation_a6qj0")
+}
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lx0vq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1273.0
+offset_bottom = 739.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 339.5
+offset_top = 108.0
+offset_right = 812.5
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("2_ar8n8")
+theme_override_font_sizes/font_size = 80
+text = "Level Select"
+
+[node name="Level1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 175.5
+offset_top = 290.0
+offset_right = 325.5
+offset_bottom = 440.0
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_eh6sm")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ryf7v")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_j78c8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wkyy2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gf8gu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_safkx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_68nne")
+text = "1"
+script = ExtResource("2_b4pv0")
+level_num = 1
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 290.0
+offset_right = 651.0
+offset_bottom = 440.0
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_eh6sm")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_drh43")
+theme_override_styles/disabled_mirrored = ExtResource("4_nq6mf")
+theme_override_styles/disabled = ExtResource("4_nq6mf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1yspf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6rht7")
+theme_override_styles/normal = ExtResource("4_nq6mf")
+text = "2"
+script = ExtResource("2_b4pv0")
+level_num = 2
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 826.5
+offset_top = 290.0
+offset_right = 976.5
+offset_bottom = 440.0
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_eh6sm")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8mtks")
+theme_override_styles/disabled_mirrored = ExtResource("4_nq6mf")
+theme_override_styles/disabled = ExtResource("4_nq6mf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qili3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qk7pl")
+theme_override_styles/normal = ExtResource("4_nq6mf")
+text = "3"
+script = ExtResource("2_b4pv0")
+level_num = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o4pem")
+}
+
+[connection signal="pressed" from="Level1" to="Level1" method="_on_pressed"]
+[connection signal="pressed" from="Level2" to="Level2" method="_on_pressed"]
+[connection signal="pressed" from="Level3" to="Level3" method="_on_pressed"]

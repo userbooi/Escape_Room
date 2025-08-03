@@ -104,6 +104,16 @@ func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))
 	node.connect("exit_interact", Callable(self, "_on_exit_interact_prompt"))
 	
+func disable() -> void:
+	movable = false
+	$Camera2D.enabled = false
+	interactable = false
+	
+func enable() -> void:
+	movable = true
+	$Camera2D.enabled = true
+	interactable = false
+	
 #func _on_interact_prompt():
 	#get_node("../InteractPopUp").visible = true
 	#taken = true

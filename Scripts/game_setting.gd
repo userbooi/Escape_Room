@@ -2,10 +2,10 @@ extends Resource
 
 class_name GameSettings
 
-enum STATES {PLAYING, DIALOGUE, FINISHED}
+enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 
 @export var level = 1
-@export var curr_state = STATES.PLAYING
+@export var curr_state = STATES.START
 @export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
 @export var event_num = 0
 @export var found = false

@@ -37,7 +37,9 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_signals()
-	set_up_level(game_settings.level)
+	$Player.disable()
+	set_up_UI()
+	#set_up_level(game_settings.level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -50,6 +52,7 @@ func _process(delta: float) -> void:
 func connect_signals():
 	$Dialogue.done_dia.connect(Callable($Player, "_return_from_dia"))
 	connect("finish_game", Callable($EndScreen, "_play_animation"))
+	$StartScreen.connect("select_levels", Callable(self, "_transition_to_levels"))
 	
 func set_up_level(level):
 	for key in game_settings.level1_layout:
@@ -64,6 +67,22 @@ func set_up_level(level):
 		
 		curr_furniture.add_to_group("furnitures")
 		$Map/Furnitures.add_child(curr_furniture)
-	
-	
+		
+func set_up_UI():
+	$EndScreen.invis()
+	$StartScreen.invis()
+	$LevelSelect.invis()
+	if game_settings.curr_state == game_settings.STATES.START:
+		$StartScreen.vis()
+	elif game_settings.curr_state == game_settings.STATES.LEVEL_SELECT:
+		$LevelSelect.vis()
+		
+func _transition_to_levels():
+	game_settings.curr_state = game_settings.STATES.LEVEL_SELECT
+	$AnimationPlayer.play("transition_in")
+	await get_tree().create_timer(0.25).timeout
+	set_up_UI()
+	$AnimationPlayer.play("transition_out")
+	await get_tree().create_timer(0.25).timeout
+	$LevelSelect.show_buttons()
 	

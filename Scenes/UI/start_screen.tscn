@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://duh2arb75tynq"]
+[gd_scene load_steps=21 format=4 uid="uid://duh2arb75tynq"]
 
+[ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_5ml24"]
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_tj7c4"]
 [ext_resource type="Texture2D" uid="uid://cjjpm1srw6t25" path="res://Assets/player/pixil-frame-0.png" id="2_d8li6"]
 [ext_resource type="Texture2D" uid="uid://ccyw716v01csm" path="res://Assets/player/pixil-frame-1.png" id="3_62rqk"]
@@ -59,6 +60,12 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qwhtf"]
 gradient = SubResource("Gradient_xdr7h")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jibb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2w1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s50j2"]
+
 [node name="StartScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -66,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5ml24")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -109,4 +117,9 @@ offset_right = 344.0
 offset_bottom = 460.0
 theme_override_fonts/font = ExtResource("13_0wpwd")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jibb5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_d2w1e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s50j2")
 text = "Begin"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
