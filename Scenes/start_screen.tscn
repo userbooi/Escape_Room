@@ -1,0 +1,112 @@
+[gd_scene load_steps=17 format=4 uid="uid://duh2arb75tynq"]
+
+[ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_tj7c4"]
+[ext_resource type="Texture2D" uid="uid://cjjpm1srw6t25" path="res://Assets/player/pixil-frame-0.png" id="2_d8li6"]
+[ext_resource type="Texture2D" uid="uid://ccyw716v01csm" path="res://Assets/player/pixil-frame-1.png" id="3_62rqk"]
+[ext_resource type="Texture2D" uid="uid://bwie6nugmtqin" path="res://Assets/player/pixil-frame-2.png" id="4_uhnrl"]
+[ext_resource type="Texture2D" uid="uid://fvwys6xbb0wi" path="res://Assets/player/pixil-frame-3.png" id="5_mlalj"]
+[ext_resource type="Texture2D" uid="uid://c6j5716fcp7h8" path="res://Assets/player/pixil-frame-4.png" id="6_lo61p"]
+[ext_resource type="Texture2D" uid="uid://dmrrod8s12uu4" path="res://Assets/player/pixil-frame-5.png" id="7_xa5sl"]
+[ext_resource type="Texture2D" uid="uid://ci1axotro7id8" path="res://Assets/player/pixil-frame-6.png" id="8_yg443"]
+[ext_resource type="Texture2D" uid="uid://b2rld88iwryx6" path="res://Assets/player/pixil-frame-7.png" id="9_88r60"]
+[ext_resource type="Texture2D" uid="uid://dew535qow0au0" path="res://Assets/player/pixil-frame-8.png" id="10_qlinu"]
+[ext_resource type="Texture2D" uid="uid://xgeeal8li6qf" path="res://Assets/player/pixil-frame-9.png" id="11_j1m15"]
+[ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="12_hi0tq"]
+[ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="13_0wpwd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7lej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d8li6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_62rqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uhnrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mlalj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lo61p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xa5sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yg443")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_88r60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qlinu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j1m15")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_xdr7h"]
+offsets = PackedFloat32Array(0.577922, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qwhtf"]
+gradient = SubResource("Gradient_xdr7h")
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Background" type="TileMapLayer" parent="Background"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAEAAAAAAAEAAEAAAAEAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAEAAAAAAAGAAAAAAAEAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAEAAAAAAAAAAMAAAAEAAAAAAAAAAQAAAAEAAAAAAABAAQAAAAEAAAAAAACAAQAAAAEAAAAAAADAAQAAAAAAAAAAAADAAMAAAAEAAAAAAAEAAMAAAAEAAAAAAAFAAMAAAAEAAAAAAAGAAMAAAAEAAAAAAAHAAMAAAAEAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAEAAAAAAAHAAQAAAAEAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAEAAAAAAAEAAQAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAEAAAAAAAHAAEAAAAEAAAAAAAGAAIAAAAEAAAAAAADAAUAAAAAAAAAAAAHAAIAAAAAAAAAAAACAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAADAAIAAAAEAAAAAAABAAMAAAAEAAAAAAABAAIAAAAEAAAAAAACAAIAAAAEAAAAAAA=")
+tile_set = ExtResource("1_tj7c4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(921, 313)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_e7lej")
+animation = &"Walk"
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1365.0
+offset_bottom = 748.0
+color = Color(0, 0, 0, 0.360784)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 962.0
+offset_bottom = 670.0
+texture = SubResource("GradientTexture2D_qwhtf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 92.0
+offset_right = 828.0
+offset_bottom = 197.0
+theme_override_fonts/bold_font = ExtResource("12_hi0tq")
+theme_override_font_sizes/bold_font_size = 80
+bbcode_enabled = true
+text = "[b]Unfamiliar Rooms[/b]"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 386.0
+offset_right = 344.0
+offset_bottom = 460.0
+theme_override_fonts/font = ExtResource("13_0wpwd")
+theme_override_font_sizes/font_size = 40
+text = "Begin"

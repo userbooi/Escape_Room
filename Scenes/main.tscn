@@ -23,14 +23,14 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_tn6y0")]
 position = Vector2(1043, 785)
 
-[node name="EndScreen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_d23hh")]
-player = NodePath("../Player")
-
 [node name="Dialogue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_epcgl")]
 offset_left = 465.0
 offset_top = 458.0
 offset_right = 465.0
 offset_bottom = 458.0
+player = NodePath("../Player")
+
+[node name="EndScreen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_d23hh")]
 player = NodePath("../Player")
 
 [node name="Marker2D" type="Marker2D" parent="."]
