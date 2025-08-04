@@ -11,6 +11,7 @@ enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 #@export var event_num = 0
 #@export var found = false
 #@export var curr_room = "Bedroom"
+#@export var level_ready = [true, true, true]
 #var DEBUG = false
 
 #===========================    TEST SETTINGS    ========================#
@@ -20,10 +21,12 @@ enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 @export var event_num = 0
 @export var found = false
 @export var curr_room = "Bedroom"
+@export var level_ready = [true, false, false]
 var DEBUG = true
 
 # Level Layout Format: {name: [position, rotation, [special lines]]}
-var level1_layout = {
+var levels_layout = [
+	{
 	"DoBe1":[Vector2(315, -55), 0, []],
 	"Plan1":[Vector2(1663, 2), 0, []],
 	"Plan2":[Vector2(30, 4), 0, []],
@@ -36,9 +39,12 @@ var level1_layout = {
 	"Seat3":[Vector2(1414, 895), PI, []],
 	"Seat4":[Vector2(1644, 622), PI/2, []],
 	"ReTa1":[Vector2(1099, 562), 0, ["Among the gum stuck on the underside of the table, you found a [b]note[/b] stuck to it[br]It reads:", "[i]The seat pointing at noon[/i]"]]
-}
+	},
+]
 
 # camera limit format: {room-name: [left, top, right, bottom]}
-var level1_camera_limit = {
+var levels_camera_limit = [
+	{
 	"Bedroom": [0, 0, 1913, 1272]
-}
+	}
+]

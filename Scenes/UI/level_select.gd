@@ -27,4 +27,4 @@ func vis():
 func show_buttons() -> void:
 	$AnimationPlayer.play("show_buttons")
 	await get_tree().create_timer(1).timeout
-	$Level1.enable_level_buttons()
+	$Level1.enable_level_buttons(game_settings.level, game_settings.level_ready)

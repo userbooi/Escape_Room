@@ -61,21 +61,21 @@ func connect_signals():
 	
 func set_up_level(level):
 	$Player.reset_pos()
-	for key in game_settings.level1_layout:
+	$Map.set_base(level)
+	for key in game_settings.levels_layout[level-1]:
 		var curr_furniture:Node2D = Furnitures[key.substr(0, 4)].instantiate()
 		
 		curr_furniture.furniture_name = key
-		curr_furniture.set_location(game_settings.level1_layout[key][0], game_settings.level1_layout[key][1])
-		for line in game_settings.level1_layout[key][2]:
+		curr_furniture.set_location(game_settings.levels_layout[level-1][key][0], game_settings.levels_layout[level-1][key][1])
+		for line in game_settings.levels_layout[level-1][key][2]:
 			curr_furniture.special_lines.append(line)
 		curr_furniture.player = $Player
 		curr_furniture.connect_signal()
 		
 		curr_furniture.add_to_group("furnitures")
 		$Map/Furnitures.add_child(curr_furniture)
-	$Player.set_camera_limits("Bedroom")
+	$Player.set_camera_limits("Bedroom", level)
 	set_up_UI()
-	
 		
 func set_up_UI():
 	$EndScreen.invis()
@@ -105,6 +105,10 @@ func _transition_to_play(level):
 	await get_tree().create_timer(0.25).timeout
 	
 func _transition_to_start():
+	game_settings.level += 1
+	for child in get_tree().get_nodes_in_group("furnitures"):
+		child.remove_from_group("furnitures")
+		child.queue_free()
 	game_settings.curr_state = game_settings.STATES.START
 	$AnimationPlayer.play("transition_in")
 	await get_tree().create_timer(0.25).timeout
