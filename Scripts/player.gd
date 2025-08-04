@@ -1,8 +1,7 @@
 extends CharacterBody2D
 signal interact
 
-@export var SPEED = 300.0
-
+@export var SPEED = 250.0
 
 var movable = true
 var interactable = false
@@ -101,7 +100,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 func reset_pos():
-	position = Vector2(808, 296)
+	position = Vector2(858, 353)
 		
 func set_camera_limits(room, level):
 	$Camera2D.limit_left = game_settings.levels_camera_limit[level-1][room][0]

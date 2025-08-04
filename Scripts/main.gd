@@ -37,10 +37,10 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_signals()
-	#$Player.disable()
-	#set_up_UI()
+	$Player.disable()
+	set_up_UI()
 	
-	set_up_level(game_settings.level)
+	#set_up_level(game_settings.level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -96,9 +96,10 @@ func _transition_to_levels():
 	$LevelSelect.show_buttons()
 	
 func _transition_to_play(level):
+	$LevelSelect.disable_level_buttons()
 	game_settings.curr_state = game_settings.STATES.PLAYING
 	$AnimationPlayer.play("transition_in")
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.5).timeout
 	set_up_level(level)
 	$Player.enable()
 	$AnimationPlayer.play("transition_out")
