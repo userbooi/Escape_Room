@@ -66,13 +66,15 @@ func set_up_level(level):
 	$Map.set_padding("Bedroom", level)
 	for key in game_settings.levels_layout[level-1]:
 		var curr_furniture:Node2D = Furnitures[key.substr(0, 4)].instantiate()
-		
 		curr_furniture.furniture_name = key
 		curr_furniture.set_location(game_settings.levels_layout[level-1][key][0], game_settings.levels_layout[level-1][key][1])
 		for line in game_settings.levels_layout[level-1][key][2]:
 			curr_furniture.special_lines.append(line)
 		curr_furniture.player = $Player
 		curr_furniture.connect_signal()
+		
+		if "Door" in key:
+			curr_furniture.connect("move", Callable(self, "_transition_to_room"))
 		
 		curr_furniture.add_to_group("furnitures")
 		$Map/Furnitures.add_child(curr_furniture)
@@ -99,6 +101,7 @@ func _transition_to_levels():
 	
 func _transition_to_play(level):
 	$LevelSelect.disable_level_buttons()
+	game_settings.curr_level = level
 	game_settings.curr_state = game_settings.STATES.PLAYING
 	$AnimationPlayer.play("transition_in")
 	await get_tree().create_timer(0.5).timeout
@@ -116,8 +119,19 @@ func _transition_to_start():
 	$AnimationPlayer.play("transition_in")
 	await get_tree().create_timer(0.25).timeout
 	reset_game_settings()
+	$Map.hide_padding()
 	$Player.disable()
 	set_up_UI()
+	$AnimationPlayer.play("transition_out")
+	await get_tree().create_timer(0.25).timeout
+	
+func _transition_to_room(curr_room, new_room, curr_level, door):
+	$AnimationPlayer.play("transition_in")
+	await get_tree().create_timer(0.25).timeout
+	$Player.go_to_pos(game_settings.levels_room_connections[curr_level-1][curr_room][door][1])
+	$Player.set_camera_limits(new_room, curr_level)
+	$Map.set_padding(new_room, curr_level)
+	game_settings.curr_room = new_room
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
 	

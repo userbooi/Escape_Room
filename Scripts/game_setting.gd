@@ -16,6 +16,7 @@ enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 
 #===========================    TEST SETTINGS    ========================#
 @export var level = 2
+@export var curr_level = 2
 @export var curr_state = STATES.PLAYING
 @export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
 @export var event_num = 0
@@ -41,13 +42,13 @@ var levels_layout = [
 		"ReTa1":[Vector2(1099, 562), 0, ["Among the gum stuck on the underside of the table, you found a [b]note[/b] stuck to it[br]It reads:", "[i]The seat pointing at noon[/i]"]]
 	},
 	{
-		"Door1":[Vector2(1389, 514), PI/2, []],
-		"Door2":[Vector2(641, 751), 0, []],
+		"Door1":[Vector2(1389, 514), PI/2, ["Storage"]],
+		"Door2":[Vector2(641, 751), 0, ["Living"]],
 		"DoBe1":[Vector2(203, -51), 0, []]
 	}
 ]
 
-# camera limit format: {room-name: [left, top, right, bottom]}
+# camera limit format: {room-name: [left, top, right, bottom, spawn_location]}
 var levels_camera_limit = [
 	{
 		"Bedroom": [0, 0, 1913, 1272]
@@ -55,6 +56,24 @@ var levels_camera_limit = [
 	{
 		"Bedroom": [136, 0, 1273, 890],
 		"Storage": [1252, 352, 2170, 1143],
-		"Living": [0, 865, 1273, 1653]
+		"Living": [0, 865, 1273, 1653, Vector2(779, 1025)]
+	}
+]
+
+var levels_room_connections = [
+	{
+		
+	},
+	{
+		"Bedroom": {
+			"Door1":["Storage", Vector2(1416, 637)],
+			"Door2":["Living", Vector2(779, 1025)]
+		},
+		"Storage": {
+			"Door1":["Bedroom", Vector2(1132, 594)],
+		},
+		"Living": {
+			"Door2":["Bedroom", Vector2(779, 733)]
+		}
 	}
 ]

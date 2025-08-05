@@ -29,11 +29,8 @@ func show_padding() -> void:
 		node.visible = true
 	
 func set_padding(room, level):
-	print(level)
 	$LeftPad.position = Vector2(game_settings.levels_camera_limit[level-1][room][0]-721, game_settings.levels_camera_limit[level-1][room][1]-309)
 	$RightPad.position = Vector2(game_settings.levels_camera_limit[level-1][room][2], game_settings.levels_camera_limit[level-1][room][1]-309)
 	$TopPad.position = Vector2(game_settings.levels_camera_limit[level-1][room][0]-374, game_settings.levels_camera_limit[level-1][room][1]-647)
 	$BottomPad.position = Vector2(game_settings.levels_camera_limit[level-1][room][0]-374, game_settings.levels_camera_limit[level-1][room][3])
 	show_padding()
-	print($LeftPad.position)
-	print($RightPad.position)

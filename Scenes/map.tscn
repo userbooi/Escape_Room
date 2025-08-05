@@ -30,6 +30,7 @@ tile_set = ExtResource("1_aq7eo")
 [node name="Furnitures" type="Node2D" parent="."]
 
 [node name="LeftPad" type="ColorRect" parent="."]
+visible = false
 offset_left = -721.0
 offset_top = -262.0
 offset_bottom = 1005.0
@@ -37,6 +38,7 @@ pivot_offset = Vector2(721, 309)
 color = Color(0, 0, 0, 1)
 
 [node name="RightPad" type="ColorRect" parent="."]
+visible = false
 offset_left = 1159.0
 offset_top = -349.0
 offset_right = 1881.0
@@ -44,6 +46,7 @@ offset_bottom = 918.0
 color = Color(0, 0, 0, 1)
 
 [node name="TopPad" type="ColorRect" parent="."]
+visible = false
 offset_left = -342.0
 offset_top = -647.0
 offset_right = 1558.0
@@ -51,6 +54,7 @@ pivot_offset = Vector2(0, 647)
 color = Color(0, 0, 0, 1)
 
 [node name="BottomPad" type="ColorRect" parent="."]
+visible = false
 offset_left = -347.0
 offset_top = 648.0
 offset_right = 1553.0

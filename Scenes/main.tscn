@@ -113,7 +113,7 @@ scale = Vector2(0.4, 0.4)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_tn6y0")]
-position = Vector2(858, 353)
+position = Vector2(774, 733)
 
 [node name="Dialogue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_epcgl")]
 visible = false
