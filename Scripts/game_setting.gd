@@ -21,7 +21,7 @@ enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 @export var curr_state = STATES.PLAYING
 @export var special_events = [
 	["ReTa1", "Seat2", "Clos1", "SpPl1"],
-	[]
+	["DoBe1", "TeVi2", "RoTa4", "Clos1", "Plan2", "WeCh1", "Seat2"]
 ]
 @export var event_num = 0
 @export var found = false
@@ -48,14 +48,14 @@ var levels_layout = [
 	{
 		"Door1":[Vector2(1389, 514), PI/2, ["Storage"]],
 		"Door2":[Vector2(641, 751), 0, ["Living"]],
-		"DoBe1":[Vector2(203, -51), 0, []],
+		"DoBe1":[Vector2(203, -51), 0, ["Seeing this bed, you remember a dream, a fleeting memory...[br]You remember...", "[i]There is something special about a cramped space[/i]"]],
 		"Plan1":[Vector2(153, 623), 0, []],
-		"Plan2":[Vector2(1038, 1404), 0, []],
+		"Plan2":[Vector2(1038, 1404), 0, ["Deep within this soil, you find a key.", "But not for the exit...[br]Perhaps for something that looks off"]],
 		"Plan3":[Vector2(23, 1401), 0, []],
-		"WeCh1":[Vector2(1094, 30), 0, []],
+		"WeCh1":[Vector2(1094, 30), 0, ["The key worked on this chair...[br]Somehow", "You find a note[br]It reads...", "[i]Rest near the electronic display, but not too close[/i]"]],
 		"TeVi1":[Vector2(722, 1620), PI, []],
-		"TeVi2":[Vector2(2136, 692), PI/2, []],
-		"Clos1":[Vector2(1211, 911), 0, []],
+		"TeVi2":[Vector2(2136, 692), PI/2, ["Endless Buffer...[br]But something is different this time", "A message is felt through the buzz...", "[i]An item in this room[/i]"]],
+		"Clos1":[Vector2(1211, 911), PI, ["The hidden panel reveals a note...[br]This seem familiar", "The note encrypts a message, you must read carefully", "[b]B[/b]ounce around and W[b]rite[/b] your story"]],
 		"Clos2":[Vector2(1249, 339), 0, []],
 		"Clos5":[Vector2(1543, 350), 0, []],
 		"Clos3":[Vector2(1472, 314), PI/6, []],
@@ -65,11 +65,11 @@ var levels_layout = [
 		"Clos8":[Vector2(2001, 773), PI*4/3, []],
 		"Sofa1":[Vector2(510, 1140), 0, []],
 		"RoTa1":[Vector2(1240, 895), 0, []],
-		"RoTa4":[Vector2(23, 1031), 0, []],
+		"RoTa4":[Vector2(23, 1031), 0, ["You not only like this table, but it emits a signal...", "[i]The other item, a hidden panel[/i]"]],
 		"RoTa2":[Vector2(1554, 810), PI/6, []],
 		"RoTa3":[Vector2(1701, 895), 0, []],
 		"Seat1":[Vector2(210, 927), 0, []],
-		"Seat2":[Vector2(340, 1387), 180, []],
+		"Seat2":[Vector2(340, 1387), PI, ["You take a seat in the gross chair...[br]You feel calm...", "You are released out of this place"]],
 	}
 ]
 

@@ -1,15 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://crmiaq0kstnlf"]
+[gd_scene load_steps=3 format=4 uid="uid://crmiaq0kstnlf"]
 
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_aq7eo"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_eam8i"]
-[ext_resource type="PackedScene" uid="uid://dfdpao26f7cbc" path="res://Scenes/AssetScenes/plant_1.tscn" id="3_vxn5e"]
-[ext_resource type="PackedScene" uid="uid://cyges47gcx5rj" path="res://Scenes/AssetScenes/double_bed.tscn" id="4_ds3cg"]
-[ext_resource type="PackedScene" uid="uid://boirjhfwtq5a1" path="res://Scenes/AssetScenes/weird_chair.tscn" id="5_p510y"]
-[ext_resource type="PackedScene" uid="uid://s8yjvpknwed" path="res://Scenes/AssetScenes/closet.tscn" id="6_hvcvx"]
-[ext_resource type="PackedScene" uid="uid://drnquv3wtq184" path="res://Scenes/AssetScenes/sofa.tscn" id="7_ey0d4"]
-[ext_resource type="PackedScene" uid="uid://bdstohlx2h4tb" path="res://Scenes/AssetScenes/tv.tscn" id="8_qbxw7"]
-[ext_resource type="PackedScene" uid="uid://butufmbuak62w" path="res://Scenes/AssetScenes/round_table.tscn" id="9_7r6ft"]
-[ext_resource type="PackedScene" uid="uid://04316d3phcra" path="res://Scenes/AssetScenes/seat.tscn" id="10_mu6g5"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_eam8i")
@@ -36,85 +28,6 @@ tile_map_data = PackedByteArray("AAAEAAAAAAAEAAEAAAAFAAAAAAAEAAEAAAAGAAAAAAAEAAE
 tile_set = ExtResource("1_aq7eo")
 
 [node name="Furnitures" type="Node2D" parent="."]
-
-[node name="Plant1" parent="Furnitures" instance=ExtResource("3_vxn5e")]
-position = Vector2(153, 623)
-
-[node name="DoubleBed" parent="Furnitures" instance=ExtResource("4_ds3cg")]
-position = Vector2(214, -44)
-
-[node name="WeirdChair" parent="Furnitures" instance=ExtResource("5_p510y")]
-position = Vector2(1094, 30)
-
-[node name="Closet" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(1211, 911)
-rotation = 3.14159
-
-[node name="Plant2" parent="Furnitures" instance=ExtResource("3_vxn5e")]
-position = Vector2(1038, 1404)
-
-[node name="Plant3" parent="Furnitures" instance=ExtResource("3_vxn5e")]
-position = Vector2(23, 1401)
-
-[node name="Sofa" parent="Furnitures" instance=ExtResource("7_ey0d4")]
-position = Vector2(510, 1140)
-
-[node name="TV" parent="Furnitures" instance=ExtResource("8_qbxw7")]
-position = Vector2(722, 1620)
-rotation = 3.14159
-
-[node name="TV2" parent="Furnitures" instance=ExtResource("8_qbxw7")]
-position = Vector2(2136, 692)
-rotation = 1.5708
-
-[node name="Closet2" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(1249, 339)
-
-[node name="Closet5" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(1543, 350)
-
-[node name="Closet3" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(1472, 314)
-rotation = 0.523599
-
-[node name="Closet4" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(1748, 673)
-rotation = 4.18879
-
-[node name="Closet6" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(1896, 314)
-rotation = 0.523599
-scale = Vector2(1, 1)
-
-[node name="Closet7" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(2227, 502)
-rotation = 2.35619
-scale = Vector2(1, 1)
-
-[node name="Closet8" parent="Furnitures" instance=ExtResource("6_hvcvx")]
-position = Vector2(2001, 773)
-rotation = 4.18879
-scale = Vector2(1, 1)
-
-[node name="RoundTable" parent="Furnitures" instance=ExtResource("9_7r6ft")]
-position = Vector2(1240, 895)
-
-[node name="RoundTable4" parent="Furnitures" instance=ExtResource("9_7r6ft")]
-position = Vector2(23, 1031)
-
-[node name="RoundTable2" parent="Furnitures" instance=ExtResource("9_7r6ft")]
-position = Vector2(1554, 810)
-rotation = 0.523599
-
-[node name="RoundTable3" parent="Furnitures" instance=ExtResource("9_7r6ft")]
-position = Vector2(1701, 895)
-
-[node name="Seat" parent="Furnitures" instance=ExtResource("10_mu6g5")]
-position = Vector2(210, 927)
-
-[node name="Seat2" parent="Furnitures" instance=ExtResource("10_mu6g5")]
-position = Vector2(340, 1387)
-rotation = 3.14159
 
 [node name="LeftPad" type="ColorRect" parent="."]
 visible = false
