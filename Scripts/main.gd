@@ -38,10 +38,10 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_signals()
-	#$Player.disable()
-	#set_up_UI()
+	$Player.disable()
+	set_up_UI()
 	
-	set_up_level(game_settings.level)
+	#set_up_level(game_settings.level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

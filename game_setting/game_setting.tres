@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_ejmar")
 level = 2
-curr_state = 2
+curr_level = 2
+curr_state = 0
 special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
 event_num = 0
 found = false

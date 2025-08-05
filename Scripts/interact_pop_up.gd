@@ -9,7 +9,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = Vector2(player.position.x+10, player.position.y-110)
+	if player.position.y-200 > player.get_node("./Camera2D").limit_top:
+		position = Vector2(player.position.x, player.position.y-110)
+	else:
+		position = Vector2(player.position.x, player.position.y+110)
+	
 	
 func set_text(new_text):
 	$GridContainer/PopUpPrompt.text = new_text
