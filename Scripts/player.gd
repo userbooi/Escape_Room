@@ -74,6 +74,12 @@ func change_dir(xdirection, ydirection):
 			
 func check_interactable():
 	if $PlayerInteractArea.has_overlapping_areas():
+		if "Door" in $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name:
+			if get_node("../InteractPopUp").get_text() != "Move Room":
+				get_node("../InteractPopUp").set_text("Move Room")
+		else:
+			if get_node("../InteractPopUp").get_text() != "Interact":
+				get_node("../InteractPopUp").set_text("Interact")
 		get_node("../InteractPopUp").visible = true
 		interactable = true
 	else:
@@ -101,12 +107,31 @@ func _physics_process(delta: float) -> void:
 		
 func reset_pos():
 	position = Vector2(858, 353)
+	
+func go_to_pos(new_pos):
+	position = new_pos
 		
 func set_camera_limits(room, level):
-	$Camera2D.limit_left = game_settings.levels_camera_limit[level-1][room][0]
-	$Camera2D.limit_top = game_settings.levels_camera_limit[level-1][room][1]
-	$Camera2D.limit_right = game_settings.levels_camera_limit[level-1][room][2]
-	$Camera2D.limit_bottom = game_settings.levels_camera_limit[level-1][room][3]
+	var left = game_settings.levels_camera_limit[level-1][room][0]
+	var top = game_settings.levels_camera_limit[level-1][room][1]
+	var right = game_settings.levels_camera_limit[level-1][room][2]
+	var bottom = game_settings.levels_camera_limit[level-1][room][3]
+	
+	var mid_coord = Vector2((right+left)/2, (bottom+top)/2)
+	
+	if right - left > 1152:
+		$Camera2D.limit_left = left
+		$Camera2D.limit_right = right
+	else:
+		$Camera2D.limit_left = mid_coord.x - 576
+		$Camera2D.limit_right = mid_coord.x + 576
+		
+	if bottom - top > 648:
+		$Camera2D.limit_top = top
+		$Camera2D.limit_bottom = bottom
+	else:
+		$Camera2D.limit_top = mid_coord - 324
+		$Camera2D.limit_bottom = mid_coord + 324
 	
 func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))

@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://30ukmxapnx63"]
+
+[ext_resource type="Texture2D" uid="uid://cjjpm1srw6t25" path="res://Assets/player/pixil-frame-0.png" id="1_8mov5"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_h84ni"]
+[ext_resource type="Texture2D" uid="uid://ccyw716v01csm" path="res://Assets/player/pixil-frame-1.png" id="2_lfu0g"]
+[ext_resource type="Texture2D" uid="uid://bwie6nugmtqin" path="res://Assets/player/pixil-frame-2.png" id="3_rrc26"]
+[ext_resource type="Texture2D" uid="uid://fvwys6xbb0wi" path="res://Assets/player/pixil-frame-3.png" id="4_ptntq"]
+[ext_resource type="Texture2D" uid="uid://c6j5716fcp7h8" path="res://Assets/player/pixil-frame-4.png" id="5_r5x4d"]
+[ext_resource type="Texture2D" uid="uid://dmrrod8s12uu4" path="res://Assets/player/pixil-frame-5.png" id="6_f8wcq"]
+[ext_resource type="Texture2D" uid="uid://ci1axotro7id8" path="res://Assets/player/pixil-frame-6.png" id="7_yxqix"]
+[ext_resource type="Texture2D" uid="uid://b2rld88iwryx6" path="res://Assets/player/pixil-frame-7.png" id="8_bivb2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyg4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mov5")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mov5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lfu0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rrc26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ptntq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r5x4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f8wcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yxqix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bivb2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pepa1"]
+radius = 122.801
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smpox"]
+radius = 90.0347
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_h84ni")
+SPEED = null
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nyg4r")
+animation = &"walk"
+frame_progress = 0.282749
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pepa1")
+
+[node name="PlayerInteractArea" type="Area2D" parent="."]
+position = Vector2(-5.71428, 134.286)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractArea"]
+shape = SubResource("CircleShape2D_smpox")
+debug_color = Color(0.655324, 0.517118, 0, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true

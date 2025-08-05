@@ -10,3 +10,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = Vector2(player.position.x+10, player.position.y-110)
+	
+func set_text(new_text):
+	$GridContainer/PopUpPrompt.text = new_text
+
+func get_text() -> String:
+	return $GridContainer/PopUpPrompt.text
+	

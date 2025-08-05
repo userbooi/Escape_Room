@@ -21,7 +21,10 @@ func set_location(pos, rot):
 	rotation = rot
 
 func connect_signal():
-	player.connect("interact", Callable(self, "_init_dia"))
+	if "Door" not in furniture_name:
+		player.connect("interact", Callable(self, "_init_dia"))
+	else:
+		player.connect("Interact", Callable(self, "_move_rooms"))
 
 func _init_dia(interacting_object, trigger_event):
 	if furniture_name == interacting_object:
@@ -30,12 +33,6 @@ func _init_dia(interacting_object, trigger_event):
 			game_settings.found = true
 		else:
 			get_parent().get_parent().get_node("../Dialogue").set_lines(normal_lines)
-
-#func _on_interact_area_area_entered(area: Area2D) -> void:
-	#if area.name == "PlayerInteractArea":
-		#interact.emit()
-	##print($interactArea.get_overlapping_areas()[0].name)
-#
-#func _on_interact_area_area_exited(area: Area2D) -> void:
-	#if area.name == "PlayerInteractArea":
-		#exit_interact.emit()
+			
+func _move_rooms() -> void:
+	print("Hello")

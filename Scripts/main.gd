@@ -14,7 +14,8 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 	"SiBe": preload("res://Scenes/AssetScenes/single_bed.tscn"),
 	"Sofa": preload("res://Scenes/AssetScenes/sofa.tscn"),
 	"TeVi": preload("res://Scenes/AssetScenes/tv.tscn"),
-	"WeCh": preload("res://Scenes/AssetScenes/weird_chair.tscn")
+	"WeCh": preload("res://Scenes/AssetScenes/weird_chair.tscn"),
+	"Door": preload("res://Scenes/AssetScenes/doors.tscn")
 }
 
 #================================================================#
@@ -37,10 +38,10 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_signals()
-	$Player.disable()
-	set_up_UI()
+	#$Player.disable()
+	#set_up_UI()
 	
-	#set_up_level(game_settings.level)
+	set_up_level(game_settings.level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,6 +63,7 @@ func connect_signals():
 func set_up_level(level):
 	$Player.reset_pos()
 	$Map.set_base(level)
+	$Map.set_padding("Bedroom", level)
 	for key in game_settings.levels_layout[level-1]:
 		var curr_furniture:Node2D = Furnitures[key.substr(0, 4)].instantiate()
 		
@@ -113,8 +115,15 @@ func _transition_to_start():
 	game_settings.curr_state = game_settings.STATES.START
 	$AnimationPlayer.play("transition_in")
 	await get_tree().create_timer(0.25).timeout
+	reset_game_settings()
 	$Player.disable()
 	set_up_UI()
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
+	
+func reset_game_settings():
+	game_settings.event_num = 0
+	game_settings.found = false
+	game_settings.curr_room = "Bedroom"
+	$Player.reset_pos()
 	
