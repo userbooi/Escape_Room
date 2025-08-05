@@ -45,7 +45,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if game_settings.event_num == game_settings.special_events.size()-1 and game_settings.curr_state == game_settings.STATES.PLAYING:
+	if game_settings.event_num == game_settings.special_events[game_settings.curr_level-1].size()-1 and game_settings.curr_state == game_settings.STATES.PLAYING:
 		finish_game.emit()
 		$Player.interactable = false
 		$Player.movable = false

@@ -19,7 +19,10 @@ enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 @export var level = 2
 @export var curr_level = 2
 @export var curr_state = STATES.PLAYING
-@export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
+@export var special_events = [
+	["ReTa1", "Seat2", "Clos1", "SpPl1"],
+	[]
+]
 @export var event_num = 0
 @export var found = false
 @export var curr_room = "Bedroom"
@@ -45,7 +48,28 @@ var levels_layout = [
 	{
 		"Door1":[Vector2(1389, 514), PI/2, ["Storage"]],
 		"Door2":[Vector2(641, 751), 0, ["Living"]],
-		"DoBe1":[Vector2(203, -51), 0, []]
+		"DoBe1":[Vector2(203, -51), 0, []],
+		"Plan1":[Vector2(153, 623), 0, []],
+		"Plan2":[Vector2(1038, 1404), 0, []],
+		"Plan3":[Vector2(23, 1401), 0, []],
+		"WeCh1":[Vector2(1094, 30), 0, []],
+		"TeVi1":[Vector2(722, 1620), PI, []],
+		"TeVi2":[Vector2(2136, 692), PI/2, []],
+		"Clos1":[Vector2(1211, 911), 0, []],
+		"Clos2":[Vector2(1249, 339), 0, []],
+		"Clos5":[Vector2(1543, 350), 0, []],
+		"Clos3":[Vector2(1472, 314), PI/6, []],
+		"Clos4":[Vector2(1748, 673), PI*4/3, []],
+		"Clos6":[Vector2(1896, 314), PI/6, []],
+		"Clos7":[Vector2(2227, 502), PI*3/4, []],
+		"Clos8":[Vector2(2001, 773), PI*4/3, []],
+		"Sofa1":[Vector2(510, 1140), 0, []],
+		"RoTa1":[Vector2(1240, 895), 0, []],
+		"RoTa4":[Vector2(23, 1031), 0, []],
+		"RoTa2":[Vector2(1554, 810), PI/6, []],
+		"RoTa3":[Vector2(1701, 895), 0, []],
+		"Seat1":[Vector2(210, 927), 0, []],
+		"Seat2":[Vector2(340, 1387), 180, []],
 	}
 ]
 

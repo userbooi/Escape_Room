@@ -30,9 +30,10 @@ func handle_interactions():
 
 func interacting():
 	if Input.is_action_just_pressed("interact") and interactable:
+		print(game_settings.curr_level)
 		furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
 		if game_settings.found:
-			if furn_name == game_settings.special_events[game_settings.event_num+1]:
+			if furn_name == game_settings.special_events[game_settings.curr_level-1][game_settings.event_num+1]:
 				game_settings.event_num += 1
 		if "Door" not in furn_name:
 			game_settings.curr_state = game_settings.STATES.DIALOGUE
@@ -40,7 +41,7 @@ func interacting():
 			$AnimatedSprite2D.play("Idle")
 			movable = false
 			interactable = false
-		interact.emit(furn_name, furn_name==game_settings.special_events[game_settings.event_num])
+		interact.emit(furn_name, furn_name==game_settings.special_events[game_settings.curr_level-1][game_settings.event_num])
 		
 	if Input.is_action_just_pressed("deleteAll") and game_settings.DEBUG:
 		for node in get_tree().get_nodes_in_group("furnitures"):
