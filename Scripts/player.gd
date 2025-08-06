@@ -1,7 +1,7 @@
 extends CharacterBody2D
 signal interact
 
-@export var SPEED = 250.0
+@export var SPEED = 300.0
 
 var movable = true
 var interactable = false
@@ -30,7 +30,6 @@ func handle_interactions():
 
 func interacting():
 	if Input.is_action_just_pressed("interact") and interactable:
-		print(game_settings.curr_level)
 		furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
 		if game_settings.found:
 			if furn_name == game_settings.special_events[game_settings.curr_level-1][game_settings.event_num+1]:
@@ -101,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
-	velocity = velocity.normalized() * SPEED
+	velocity = velocity.normalized() * SPEED * delta * 45
 
 	if movable:
 		move_and_slide()

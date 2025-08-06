@@ -55,7 +55,7 @@ var levels_layout = [
 		"WeCh1":[Vector2(1094, 30), 0, ["The key worked on this chair...[br]Somehow", "You find a note[br]It reads...", "[i]Rest near the electronic display, but not too close[/i]"]],
 		"TeVi1":[Vector2(722, 1620), PI, []],
 		"TeVi2":[Vector2(2136, 692), PI/2, ["Endless Buffer...[br]But something is different this time", "A message is felt through the buzz...", "[i]An item in this room[/i]"]],
-		"Clos1":[Vector2(1211, 911), PI, ["The hidden panel reveals a note...[br]This seem familiar", "The note encrypts a message, you must read carefully", "[b]B[/b]ounce around and W[b]rite[/b] your story"]],
+		"Clos1":[Vector2(1211, 911), PI, ["The hidden panel reveals a note...[br]This seem familiar", "The note encrypts a message, you must read carefully", "[i][b]B[/b]ounce around and W[b]rite[/b] your story[/i]"]],
 		"Clos2":[Vector2(1249, 339), 0, []],
 		"Clos5":[Vector2(1543, 350), 0, []],
 		"Clos3":[Vector2(1472, 314), PI/6, []],
