@@ -140,12 +140,18 @@ func connect_signal(node: Node2D) -> void:
 func disable() -> void:
 	movable = false
 	$Camera2D.enabled = false
+	$LightOccluder2D.visible = false
+	$PointLight2D.enabled = false
 	interactable = false
 	
 func enable() -> void:
 	movable = true
 	$Camera2D.enabled = true
 	interactable = false
+	
+func enble_light() -> void:
+	$LightOccluder2D.visible = true
+	$PointLight2D.enabled = true
 	
 #func _on_interact_prompt():
 	#get_node("../InteractPopUp").visible = true

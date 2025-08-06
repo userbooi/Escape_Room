@@ -57,8 +57,8 @@ radius = 122.801
 radius = 90.0347
 
 [sub_resource type="Gradient" id="Gradient_na6bq"]
-offsets = PackedFloat32Array(0.448052, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.103896, 0.922078)
+colors = PackedColorArray(1, 1, 1, 1, 0.442911, 0.442911, 0.442911, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v570g"]
 gradient = SubResource("Gradient_na6bq")
@@ -66,7 +66,7 @@ width = 128
 height = 128
 fill = 1
 fill_from = Vector2(0.495413, 0.522936)
-fill_to = Vector2(0.853211, 0.0917431)
+fill_to = Vector2(0.876147, 0.105505)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pbe3p"]
 polygon = PackedVector2Array(-140, 105.714, -122.857, 114.286, -94.2857, 111.429, -77.1429, 97.1429, -82.8571, 65.7143, -57.1429, 60, -37.1429, 74.2857, 25.7143, 74.2857, 45.7143, 57.1429, 74.2857, 57.1429, 68.5714, 68.5714, 68.5714, 102.857, 77.1429, 120, 114.286, 117.143, 131.429, 91.4286, 131.429, 60, 137.143, 2.85714, 122.857, -42.8571, 88.5714, -85.7143, 40, -97.1429, 2.85714, -108.571, -45.7143, -102.857, -57.1429, -97.1429, -97.1429, -91.4286, -125.714, -65.7143, -151.429, -22.8571, -154.286, 28.5714, -151.429, 82.8571)
@@ -97,11 +97,10 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.988235, 0.803922, 0.34902, 0.545098)
-energy = 10.0
-blend_mode = 2
+color = Color(1, 0.686275, 0.207843, 0.847059)
+energy = 8.0
 texture = SubResource("GradientTexture2D_v570g")
-texture_scale = 10.0
+texture_scale = 13.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_pbe3p")
