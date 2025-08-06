@@ -106,7 +106,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 func reset_pos():
-	position = Vector2(858, 353)
+	position = game_settings.levels_spawn_locations[game_settings.curr_level-1]
 	
 func go_to_pos(new_pos):
 	position = new_pos
@@ -149,7 +149,7 @@ func enable() -> void:
 	$Camera2D.enabled = true
 	interactable = false
 	
-func enble_light() -> void:
+func enable_light() -> void:
 	$LightOccluder2D.visible = true
 	$PointLight2D.enabled = true
 	

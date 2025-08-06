@@ -16,18 +16,26 @@ enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 #var DEBUG = false
 
 #===========================    TEST SETTINGS    ========================#
-@export var level = 2
-@export var curr_level = 2
+@export var level = 3
+@export var curr_level = 3
 @export var curr_state = STATES.PLAYING
 @export var special_events = [
 	["ReTa1", "Seat2", "Clos1", "SpPl1"],
-	["DoBe1", "TeVi2", "RoTa4", "Clos1", "Plan2", "WeCh1", "Seat2"]
+	["DoBe1", "TeVi2", "RoTa4", "Clos1", "Plan2", "WeCh1", "Seat2"],
+	[]
 ]
 @export var event_num = 0
 @export var found = false
 @export var curr_room = "Bedroom"
-@export var level_ready = [true, true, false]
+@export var level_ready = [true, true, true]
 var DEBUG = true
+
+# spawn location format: [spawn location]
+var levels_spawn_locations = [
+	Vector2(858, 353),
+	Vector2(858, 353),
+	Vector2(837, 201),
+]
 
 # Level Layout Format: {name: [position, rotation, [special lines]]}
 var levels_layout = [
@@ -46,8 +54,8 @@ var levels_layout = [
 		"ReTa1":[Vector2(1099, 562), 0, ["Among the gum stuck on the underside of the table, you found a [b]note[/b] stuck to it[br]It reads:", "[i]The seat pointing at noon[/i]"]]
 	},
 	{
-		"Door1":[Vector2(1389, 514), PI/2, ["Storage"]],
-		"Door2":[Vector2(641, 751), 0, ["Living"]],
+		"Door1":[Vector2(1389, 514), PI/2, []],
+		"Door2":[Vector2(641, 751), 0, []],
 		"DoBe1":[Vector2(203, -51), 0, ["Seeing this bed, you remember a dream, a fleeting memory...[br]You remember...", "[i]There is something special about a cramped space[/i]"]],
 		"Plan1":[Vector2(153, 623), 0, []],
 		"Plan2":[Vector2(1038, 1404), 0, ["Deep within this soil, you find a key.", "But not for the exit...[br]Perhaps for something that looks off"]],
@@ -70,6 +78,9 @@ var levels_layout = [
 		"RoTa3":[Vector2(1701, 895), 0, []],
 		"Seat1":[Vector2(210, 927), 0, []],
 		"Seat2":[Vector2(340, 1387), PI, ["You take a seat in the gross chair...[br]You feel calm...", "You are released out of this place"]],
+	},
+	{
+		
 	}
 ]
 
@@ -81,7 +92,17 @@ var levels_camera_limit = [
 	{
 		"Bedroom": [136, 0, 1273, 890],
 		"Storage": [1252, 352, 2170, 1143],
-		"Living": [0, 865, 1273, 1653, Vector2(779, 1025)]
+		"Living": [0, 865, 1273, 1653]
+	},
+	{
+		"Bedroom": [518, 6, 1398, 752],
+		"PlantRoom1": [0, 229, 542, 760],
+		"Living": [263, 741, 1530, 1397],
+		"PlantRoom2": [905, 1379, 1399, 1909],
+		"TvRoom": [135, 1382, 927, 1909],
+		"Ritual": [1511, 741, 2551, 1398],
+		"Empty": [1800, 1379, 2293, 1778],
+		"LongHall": [1673, -2039, 2421, 756]
 	}
 ]
 
@@ -100,5 +121,37 @@ var levels_room_connections = [
 		"Living": {
 			"Door2":["Bedroom", Vector2(779, 733)]
 		}
-	}
+	},
+	{
+		"Bedroom": {
+			"Door1":["PlantRoom1", Vector2(444, 504)],
+			"Door2":["Living", Vector2(772, 848)]
+		},
+		"PlantRoom1": {
+			"Door1":["Bedroom", Vector2(639, 506)]
+		},
+		"Living": {
+			"Door2":["Bedroom", Vector2(771, 653)],
+			"Door4":["PlantRoom2", Vector2(1164, 1461)],
+			"Door3":["Ritual", Vector2(1630, 1027)],
+		},
+		"PlantRoom2": {
+			"Door4":["Living", Vector2(1156,1271)],
+			"Door5":["TvRoom", Vector2(820, 1657)],
+		},
+		"TvRoom": {
+			"Door5":["PlantRoom2", Vector2(1004, 1663)],
+		},
+		"Ritual": {
+			"Door3":["Living", Vector2(1421, 1024)],
+			"Door7":["Empty", Vector2(2057, 1477)],
+			"Door6":["LongHall", Vector2(2055, 656)]
+		},
+		"Empty": {
+			"Door7":["Ritual", Vector2(2053, 1286)]
+		},
+		"LongHall": {
+			"Door6":["Ritual", Vector2(2055, 837)]
+		}
+	},
 ]

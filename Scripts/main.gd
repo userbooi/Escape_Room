@@ -64,6 +64,9 @@ func set_up_level(level):
 	$Player.reset_pos()
 	$Map.set_base(level)
 	$Map.set_padding("Bedroom", level)
+	if game_settings.curr_level == 3:
+		$Player.enable_light()
+		$ColorRect.visible = true
 	for key in game_settings.levels_layout[level-1]:
 		var curr_furniture:Node2D = Furnitures[key.substr(0, 4)].instantiate()
 		curr_furniture.furniture_name = key
@@ -111,6 +114,7 @@ func _transition_to_play(level):
 	await get_tree().create_timer(0.25).timeout
 	
 func _transition_to_start():
+	$ColorRect.visible = false
 	game_settings.level += 1
 	for child in get_tree().get_nodes_in_group("furnitures"):
 		child.remove_from_group("furnitures")

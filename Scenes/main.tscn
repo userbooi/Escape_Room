@@ -113,11 +113,13 @@ scale = Vector2(0.4, 0.4)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_tn6y0")]
-position = Vector2(776, 770)
+position = Vector2(2055, 837)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 3833.0
-offset_bottom = 3088.0
+visible = false
+offset_top = -2308.0
+offset_right = 2837.0
+offset_bottom = 2189.0
 color = Color(0, 0, 0, 0.858824)
 
 [node name="Dialogue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_epcgl")]
@@ -139,7 +141,7 @@ visible = false
 visible = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1273, 1653)
+position = Vector2(2421, 756)
 
 [node name="TransitionRect" type="ColorRect" parent="."]
 offset_left = -1952.0
