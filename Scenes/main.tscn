@@ -112,8 +112,13 @@ offset_bottom = 743.0
 scale = Vector2(0.4, 0.4)
 player = NodePath("../Player")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 3461.0
+offset_bottom = 2153.0
+color = Color(0, 0, 0, 0.776471)
+
 [node name="Player" parent="." instance=ExtResource("2_tn6y0")]
-position = Vector2(774, 733)
+position = Vector2(777, 741)
 
 [node name="Dialogue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_epcgl")]
 visible = false

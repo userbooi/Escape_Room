@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyod5x2s3urx1"]
+
+[ext_resource type="Texture2D" uid="uid://bldkli3wkyfol" path="res://Assets/lighting/neutralPointLight.webp" id="1_jh6n7"]
+
+[node name="ParticlesTest" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+energy = 10.0
+texture = ExtResource("1_jh6n7")
