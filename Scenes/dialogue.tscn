@@ -29,6 +29,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoevh"]
 
 [node name="Dialogue" type="Control"]
+light_mask = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,18 +39,21 @@ grow_vertical = 2
 script = ExtResource("1_cwckh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 2
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0.384314)
 
 [node name="Panel" type="Panel" parent="."]
+light_mask = 2
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4y6jr")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+light_mask = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.119
@@ -69,6 +73,7 @@ patch_margin_right = 25
 patch_margin_bottom = 25
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/NinePatchRect"]
+light_mask = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,6 +95,7 @@ bbcode_enabled = true
 text = "[b]bold [i]bold italic[/i] italic[/b]asdsadasdsadsadsa[br]dsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadsadasdsadsa"
 
 [node name="continue_button" type="Button" parent="."]
+light_mask = 2
 layout_mode = 0
 offset_left = 911.0
 offset_top = 531.0

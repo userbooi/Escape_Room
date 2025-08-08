@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func set_base(level):
-	for child in get_children().slice(0, 2):
+	for child in get_children().slice(0, 3):
 		if child.name == "Level" + str(level):
 			child.visible = true
 			child.get_child(1).collision_enabled = true

@@ -39,4 +39,5 @@ func set_lines(new_lines):
 func assign_line():
 	$Panel/NinePatchRect/RichTextLabel.clear()
 	var real_text = lines[line_index].replace("[br]", "\n\n")
+	real_text = real_text.replace("[n]", "\n")
 	$Panel/NinePatchRect/RichTextLabel.append_text(real_text)

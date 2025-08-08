@@ -43,3 +43,10 @@ func _move_rooms(interacting_object, trigger_event) -> void:
 				  game_settings.levels_room_connections[game_settings.curr_level-1][game_settings.curr_room][furniture_name][0],
 				  game_settings.curr_level,
 				  furniture_name)
+				
+func disable_light() -> void:
+	$PointLight2D.enabled = false
+	
+func enable_light() -> void:
+	$PointLight2D.enabled = true
+		

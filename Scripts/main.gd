@@ -38,10 +38,10 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_signals()
-	#$Player.disable()
-	#set_up_UI()
+	$Player.disable()
+	set_up_UI()
 	
-	set_up_level(game_settings.level)
+	#set_up_level(game_settings.level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -78,6 +78,10 @@ func set_up_level(level):
 		
 		if "Door" in key:
 			curr_furniture.connect("move", Callable(self, "_transition_to_room"))
+		if "TeVi" in key and game_settings.curr_level == 3:
+			curr_furniture.enable_light()
+		elif "TeVi" in key and game_settings.curr_level != 3:
+			curr_furniture.disable_light()
 		
 		curr_furniture.add_to_group("furnitures")
 		$Map/Furnitures.add_child(curr_furniture)
@@ -110,6 +114,8 @@ func _transition_to_play(level):
 	await get_tree().create_timer(0.5).timeout
 	set_up_level(level)
 	$Player.enable()
+	if game_settings.curr_level == 3:
+		$Player.enable_light()
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
 	
