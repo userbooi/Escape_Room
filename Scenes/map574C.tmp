@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=4 uid="uid://crmiaq0kstnlf"]
+[gd_scene load_steps=9 format=4 uid="uid://crmiaq0kstnlf"]
 
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="1_aq7eo"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_eam8i"]
+[ext_resource type="PackedScene" uid="uid://s8yjvpknwed" path="res://Scenes/AssetScenes/closet.tscn" id="4_04s0y"]
+[ext_resource type="PackedScene" uid="uid://04316d3phcra" path="res://Scenes/AssetScenes/seat.tscn" id="5_8y16h"]
+[ext_resource type="PackedScene" uid="uid://dfdpao26f7cbc" path="res://Scenes/AssetScenes/plant_1.tscn" id="7_ddol7"]
+[ext_resource type="PackedScene" uid="uid://bdstohlx2h4tb" path="res://Scenes/AssetScenes/tv.tscn" id="8_eao36"]
+[ext_resource type="PackedScene" uid="uid://il3yai02lld7" path="res://Scenes/AssetScenes/plant_2.tscn" id="9_30mll"]
+[ext_resource type="PackedScene" uid="uid://bsmuom1rkgvmb" path="res://Scenes/AssetScenes/chair.tscn" id="10_5x1jk"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_eam8i")
@@ -39,6 +45,292 @@ tile_map_data = PackedByteArray("AAAKAAAAAAAAAAIAAAAKAAEAAAABAAIAAAAKAAIAAAABAAI
 tile_set = ExtResource("1_aq7eo")
 
 [node name="Furnitures" type="Node2D" parent="."]
+
+[node name="Closet" parent="Furnitures" instance=ExtResource("4_04s0y")]
+position = Vector2(951, -19)
+
+[node name="Closet2" parent="Furnitures" instance=ExtResource("4_04s0y")]
+position = Vector2(1147, -17)
+
+[node name="Seat" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1143, 326)
+rotation = 0.610865
+
+[node name="Plant1" parent="Furnitures" instance=ExtResource("7_ddol7")]
+position = Vector2(76, 367)
+
+[node name="TV" parent="Furnitures" instance=ExtResource("8_eao36")]
+position = Vector2(1364, 382)
+rotation = 1.5708
+
+[node name="Plant2" parent="Furnitures" instance=ExtResource("9_30mll")]
+position = Vector2(281, 734)
+
+[node name="TV2" parent="Furnitures" instance=ExtResource("8_eao36")]
+position = Vector2(868, 1369)
+rotation = -3.14159
+
+[node name="TV4" parent="Furnitures" instance=ExtResource("8_eao36")]
+position = Vector2(1970, 1001)
+
+[node name="TV5" parent="Furnitures" instance=ExtResource("8_eao36")]
+position = Vector2(1979, -1999)
+
+[node name="Plant3" parent="Furnitures" instance=ExtResource("9_30mll")]
+position = Vector2(1277, 736)
+
+[node name="Plant5" parent="Furnitures" instance=ExtResource("9_30mll")]
+position = Vector2(283, 1134)
+
+[node name="Plant4" parent="Furnitures" instance=ExtResource("9_30mll")]
+position = Vector2(1277, 1135)
+
+[node name="Chair" parent="Furnitures" instance=ExtResource("10_5x1jk")]
+position = Vector2(489, 1051)
+rotation = 5.75959
+
+[node name="Chair2" parent="Furnitures" instance=ExtResource("10_5x1jk")]
+position = Vector2(954, 972)
+rotation = 0.523599
+
+[node name="Plant6" parent="Furnitures" instance=ExtResource("7_ddol7")]
+position = Vector2(1052, 1547)
+
+[node name="TV3" parent="Furnitures" instance=ExtResource("8_eao36")]
+position = Vector2(183, 1745)
+rotation = 4.71239
+
+[node name="Seat2" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2343, 753)
+rotation = 0.785398
+
+[node name="Seat3" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2427, 831)
+rotation = 0.785398
+
+[node name="Seat4" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1737, 1400)
+rotation = 3.92699
+
+[node name="Seat5" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1655, 1317)
+rotation = 3.92699
+
+[node name="Seat6" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2439, 1309)
+rotation = 2.35619
+
+[node name="Seat7" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2516, 1228)
+rotation = 2.35619
+
+[node name="Seat8" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1571, 918)
+rotation = 5.49779
+
+[node name="Seat9" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1649, 847)
+rotation = 5.49779
+
+[node name="Seat10" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, 576)
+rotation = 1.5708
+
+[node name="Seat11" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, 470)
+rotation = 1.5708
+
+[node name="Seat12" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, 365)
+rotation = 1.5708
+
+[node name="Seat13" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, 263)
+rotation = 1.5708
+
+[node name="Seat14" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, 158)
+rotation = 1.5708
+
+[node name="Seat15" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, 53)
+rotation = 1.5708
+
+[node name="Seat16" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -52)
+rotation = 1.5708
+
+[node name="Seat17" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, -162)
+rotation = 1.5708
+
+[node name="Seat18" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -268)
+rotation = 1.5708
+
+[node name="Seat19" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -373)
+rotation = 1.5708
+
+[node name="Seat20" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -475)
+rotation = 1.5708
+
+[node name="Seat21" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -580)
+rotation = 1.5708
+
+[node name="Seat22" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, -685)
+rotation = 1.5708
+
+[node name="Seat23" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -790)
+rotation = 1.5708
+
+[node name="Seat24" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -901)
+rotation = 1.5708
+
+[node name="Seat25" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1006)
+rotation = 1.5708
+
+[node name="Seat26" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, -1111)
+rotation = 1.5708
+
+[node name="Seat27" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1216)
+rotation = 1.5708
+
+[node name="Seat28" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, -1326)
+rotation = 1.5708
+
+[node name="Seat29" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1432)
+rotation = 1.5708
+
+[node name="Seat30" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1537)
+rotation = 1.5708
+
+[node name="Seat31" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1639)
+rotation = 1.5708
+
+[node name="Seat32" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1744)
+rotation = 1.5708
+
+[node name="Seat33" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2422, -1849)
+rotation = 1.5708
+
+[node name="Seat34" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(2421, -1954)
+rotation = 1.5708
+
+[node name="Seat35" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, 690)
+rotation = 4.71239
+
+[node name="Seat36" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, 584)
+rotation = 4.71239
+
+[node name="Seat37" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, 479)
+rotation = 4.71239
+
+[node name="Seat38" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, 377)
+rotation = 4.71239
+
+[node name="Seat39" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, 272)
+rotation = 4.71239
+
+[node name="Seat40" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, 167)
+rotation = 4.71239
+
+[node name="Seat41" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, 62)
+rotation = 4.71239
+
+[node name="Seat42" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, -48)
+rotation = 4.71239
+
+[node name="Seat43" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -154)
+rotation = 4.71239
+
+[node name="Seat44" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -259)
+rotation = 4.71239
+
+[node name="Seat45" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -361)
+rotation = 4.71239
+
+[node name="Seat46" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -466)
+rotation = 4.71239
+
+[node name="Seat47" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, -571)
+rotation = 4.71239
+
+[node name="Seat48" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -676)
+rotation = 4.71239
+
+[node name="Seat49" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -787)
+rotation = 4.71239
+
+[node name="Seat50" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -892)
+rotation = 4.71239
+
+[node name="Seat51" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, -997)
+rotation = 4.71239
+
+[node name="Seat52" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -1102)
+rotation = 4.71239
+
+[node name="Seat53" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, -1212)
+rotation = 4.71239
+
+[node name="Seat54" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -1318)
+rotation = 4.71239
+
+[node name="Seat55" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -1423)
+rotation = 4.71239
+
+[node name="Seat56" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -1525)
+rotation = 4.71239
+
+[node name="Seat57" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1691, -1630)
+rotation = 4.71239
+
+[node name="Seat58" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1692, -1735)
+rotation = 4.71239
+
+[node name="Seat59" parent="Furnitures" instance=ExtResource("5_8y16h")]
+position = Vector2(1693, -1829)
+rotation = 4.71239
 
 [node name="LeftPad" type="ColorRect" parent="."]
 visible = false

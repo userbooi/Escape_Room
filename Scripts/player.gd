@@ -35,6 +35,7 @@ func interacting():
 			if furn_name == game_settings.special_events[game_settings.curr_level-1][game_settings.event_num+1]:
 				game_settings.event_num += 1
 		if "Door" not in furn_name:
+			disable_light()
 			game_settings.curr_state = game_settings.STATES.DIALOGUE
 			get_node("../Dialogue").visible = true
 			$AnimatedSprite2D.play("Idle")
@@ -49,6 +50,7 @@ func interacting():
 func _return_from_dia():
 	movable = true
 	interactable = true
+	enable_light()
 	game_settings.curr_state = game_settings.STATES.PLAYING
 
 func change_anim(xdirection, ydirection):
@@ -130,8 +132,8 @@ func set_camera_limits(room, level):
 		$Camera2D.limit_top = top
 		$Camera2D.limit_bottom = bottom
 	else:
-		$Camera2D.limit_top = mid_coord - 324
-		$Camera2D.limit_bottom = mid_coord + 324
+		$Camera2D.limit_top = mid_coord.y - 324
+		$Camera2D.limit_bottom = mid_coord.y + 324
 	
 func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))
@@ -152,6 +154,10 @@ func enable() -> void:
 func enable_light() -> void:
 	$LightOccluder2D.visible = true
 	$PointLight2D.enabled = true
+	
+func disable_light() -> void:
+	$LightOccluder2D.visible = false
+	$PointLight2D.enabled = false
 	
 #func _on_interact_prompt():
 	#get_node("../InteractPopUp").visible = true

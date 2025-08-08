@@ -141,7 +141,7 @@ visible = false
 visible = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(2421, 756)
+position = Vector2(540, 758)
 
 [node name="TransitionRect" type="ColorRect" parent="."]
 offset_left = -1952.0
