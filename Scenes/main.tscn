@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqcglhjjxhg0e"]
+[gd_scene load_steps=14 format=3 uid="uid://cqcglhjjxhg0e"]
 
 [ext_resource type="PackedScene" uid="uid://crmiaq0kstnlf" path="res://Scenes/map.tscn" id="1_h1ppf"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_v4q1k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://br60xis125v3m" path="res://Scenes/dialogue.tscn" id="5_epcgl"]
 [ext_resource type="PackedScene" uid="uid://w3256swech3s" path="res://Scenes/UI/end_screen.tscn" id="6_d23hh"]
 [ext_resource type="PackedScene" uid="uid://duh2arb75tynq" path="res://Scenes/UI/start_screen.tscn" id="7_4kvut"]
+[ext_resource type="PackedScene" uid="uid://dogvglpil2rfx" path="res://Scenes/UI/credit_screen.tscn" id="8_2ywvq"]
 [ext_resource type="PackedScene" uid="uid://cb6juypjv7e0i" path="res://Scenes/UI/level_select.tscn" id="8_571fb"]
 
 [sub_resource type="Animation" id="Animation_7n7l1"]
@@ -135,6 +136,9 @@ visible = false
 player = NodePath("../Player")
 
 [node name="StartScreen" parent="." instance=ExtResource("7_4kvut")]
+visible = false
+
+[node name="CreditScreen" parent="." instance=ExtResource("8_2ywvq")]
 visible = false
 
 [node name="LevelSelect" parent="." instance=ExtResource("8_571fb")]

@@ -92,6 +92,7 @@ func set_up_UI():
 	$EndScreen.invis()
 	$StartScreen.invis()
 	$LevelSelect.invis()
+	$CreditScreen.invis()
 	if game_settings.curr_state == game_settings.STATES.START:
 		$StartScreen.vis()
 	elif game_settings.curr_state == game_settings.STATES.LEVEL_SELECT:

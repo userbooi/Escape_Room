@@ -2,18 +2,7 @@ extends Resource
 
 class_name GameSettings
 
-enum STATES {START, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
-
-#============================    DEFAULT SETTINGS    ===========================#
-#@export var level = 1
-#@export var curr_level = 1
-#@export var curr_state = STATES.START
-#@export var special_events = ["ReTa1", "Seat2", "Clos1", "SpPl1"]
-#@export var event_num = 0
-#@export var found = false
-#@export var curr_room = "Bedroom"
-#@export var level_ready = [true, true, true]
-#var DEBUG = false
+enum STATES {START, CREDIT, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 
 #===========================    TEST SETTINGS    ========================#
 @export var level = 3

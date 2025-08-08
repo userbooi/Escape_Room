@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dogvglpil2rfx"]
+
+[ext_resource type="Script" path="res://Scenes/UI/credit_screen.gd" id="1_2q3or"]
+[ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="1_trxuw"]
+[ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="1_uejlv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wekg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmphu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0uq3j"]
+
+[node name="CreditScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2q3or")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1216.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 219.0
+offset_top = 46.0
+offset_right = 934.0
+offset_bottom = 151.0
+theme_override_fonts/bold_font = ExtResource("1_trxuw")
+theme_override_font_sizes/bold_font_size = 80
+bbcode_enabled = true
+text = "[b]Unfamiliar Rooms[/b]"
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 49.0
+offset_right = 129.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_uejlv")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wekg1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mmphu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0uq3j")
+text = "Back"
