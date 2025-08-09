@@ -7,11 +7,13 @@ enum STATES {START, CREDIT, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 #===========================    TEST SETTINGS    ========================#
 @export var level = 1
 @export var curr_level = 1
+@export var secret = false
 @export var curr_state = STATES.START
 @export var special_events = [
 	["ReTa1", "Seat2", "Clos1", "SpPl1"],
 	["DoBe1", "TeVi2", "RoTa4", "Clos1", "Plan2", "WeCh1", "Seat2"],
-	["TeVi1", "TeVi3", "Plan1", "TeVi4", "Plan2", "Seat4", "Seat12", "TeVi5"]
+	["TeVi1", "TeVi3", "Plan1", "TeVi4", "Plan2", "Seat4", "Seat12", "TeVi5"],
+	["", "", "", "", "", "", "Seat2", "TeVi5"]
 ]
 @export var event_num = 0
 @export var found = false
@@ -86,7 +88,18 @@ var levels_layout = [
 		"Plan2":[Vector2(281, 734), 0, ["You found the plant the cartoon mentioned[br]Its leaves holds a message:", "[i]The person who loves the show obviously wants to see it![/i]"]],
 		"TeVi2":[Vector2(868, 1369), PI, []],
 		"TeVi4":[Vector2(1970, 1001), 0, ["Staring into the TV, you begin to understand the crowd[br]It is playing your favorite cartoon from your childhood...", "But the Characters are saying one phrase and one phrase only:", "[i]Start Playing Our Game! First Find The Plant![/i]"]],
-		"TeVi5":[Vector2(1979, -1999), 0, ["You have reached the end of this game. The goal is to [b]escape[/b] isn't it? However, is there a world [b]outside[/b] of these rooms?", "[color=#6D0F0F][i][b]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[/b][/i][/color]", "No where in this game exists a location aside from these rooms", "Though the game is made to display 'You Escaped' at the end of each level,[n]you never actually escaped these rooms", "The Character will forever be within them.[n]If you choose to replay a level, you Character will always be in these rooms", "True escape is unattainable, not with the steps you took", "Anyways, congratulations on 'escaping'"]],
+		"TeVi5":[Vector2(1979, -1999), 0, ["You have reached the end of this game. The goal is to [b]escape[/b] isn't it? However, is there a world [b]outside[/b] of these rooms?", 
+										   "[color=#B61E1E][i][b]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[n]There isn't There isn't There isn't There isn't There isn't[/b][/i][/color]", 
+										   "No where in this game exists a location aside from these rooms", 
+										   "Though the game is made to display 'You Escaped' at the end of each level,[n]you never actually escaped these rooms", 
+										   "The Character will forever be within them.[n]If you choose to replay a level, you Character will always be in these rooms", 
+										   "True escape is unattainable, not with the steps you took", 
+										   "Anyways, congratulations on [b][i]Escaping[/i][/b]"],
+										  ["Interesting...[br]It seems you weren't a big fan of the cartoon...",
+										   "Whether you came searching for another way our after my dialogue in a pervious playthrough or just found it by accident, It matters not",
+										   "You found the secret ending.[br]Congratulations.",
+										   "As such, I will grant your character forever freedom",
+										   "Bye Bye now."]],
 		"Plan3":[Vector2(1277, 736), 0, []],
 		"Plan5":[Vector2(283, 1134), 0, []],
 		"Plan4":[Vector2(1277, 1135), 0, []],
@@ -94,9 +107,11 @@ var levels_layout = [
 		"Chai2":[Vector2(954, 972), PI/6, []],
 		"Plan6":[Vector2(1052, 1547), 0, []],
 		"TeVi3":[Vector2(183, 1745), PI*3/2, ["Staring into the TV, you are drawn to a far room", "The room houses a sole living entity"]],
-		"Seat2":[Vector2(2343, 753), PI/4, []],
+		"Seat2":[Vector2(2343, 753), PI/4, ["You found the seat [b]FURTHEST[/b] from the TV", 
+											"[color=#B61E1E]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[color]",
+											"Go to the TV at the end of the long hallway"]],
 		"Seat3":[Vector2(2427, 831), PI/4, []],
-		"Seat4":[Vector2(1737, 1400), PI*5/4, ["You find the seat of the cartoon's number 1 fan...", "The Character's phrase changed[br]They now say:", "[i]How many TVs have you interacted with here?[br]Go to the long hallway and sit in that chair on the right[/i]"]],
+		"Seat4":[Vector2(1737, 1400), PI*5/4, ["You found the seat of the cartoon's number 1 fan...", "The Character's phrase changed[br]They now say:", "[i]How many TVs have you interacted with here?[br]Go to the long hallway and sit in that chair on the right[/i]"]],
 		"Seat5":[Vector2(1655, 1317), PI*5/4, []],
 		"Seat6":[Vector2(2439, 1309), PI*3/4, []],
 		"Seat7":[Vector2(2516, 1228), PI*3/4, []],

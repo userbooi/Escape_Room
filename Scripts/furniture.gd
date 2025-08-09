@@ -7,6 +7,7 @@ signal move
 
 @export var normal_lines: Array[String]
 @export var special_lines: Array[String]
+@export var secret_lines: Array[String]
 
 var game_settings = preload("res://game_setting/game_setting.tres")
 
@@ -31,8 +32,11 @@ func connect_signal():
 func _init_dia(interacting_object, trigger_event):
 	if furniture_name == interacting_object:
 		if trigger_event:
-			get_parent().get_parent().get_node("../Dialogue").set_lines(special_lines)
-			game_settings.found = true
+			if not game_settings.secret:
+				get_parent().get_parent().get_node("../Dialogue").set_lines(special_lines)
+				game_settings.found = true
+			else:
+				get_parent().get_parent().get_node("../Dialogue").set_lines(secret_lines)
 		else:
 			get_parent().get_parent().get_node("../Dialogue").set_lines(normal_lines)
 			

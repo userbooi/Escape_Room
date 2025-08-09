@@ -39,7 +39,9 @@ var SaveLoadSystem = preload("res://SaveLoad/save_load_system.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	game_settings.level = SaveLoadSystem.load_from_json("user://game_data.json")["max_level"]
+	var data = SaveLoadSystem.load_from_json("user://game_data.json")
+	game_settings.level = data["max_level"]
+	game_settings.secret = data["secret"]
 	connect_signals()
 	$Player.disable()
 	set_up_UI()
