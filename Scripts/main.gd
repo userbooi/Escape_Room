@@ -1,7 +1,9 @@
 extends Node2D
 signal finish_game
 
-var game_settings = preload("res://game_setting/game_setting.tres")
+var game_settings = GameSettings.new()
+var game_data
+
 @export var Furnitures: Dictionary = {
 	"Chai": preload("res://Scenes/AssetScenes/chair.tscn"),
 	"Clos": preload("res://Scenes/AssetScenes/closet.tscn"),
@@ -55,7 +57,9 @@ func connect_signals():
 	$Dialogue.done_dia.connect(Callable($Player, "_return_from_dia"))
 	connect("finish_game", Callable($EndScreen, "_play_animation"))
 	$StartScreen.connect("select_levels", Callable(self, "_transition_to_levels"))
+	$StartScreen.connect("to_credit", Callable(self, "_transition_to_credit"))
 	$EndScreen.connect("back_to_start", Callable(self, "_transition_to_start"))
+	$CreditScreen.connect("to_start", Callable(self, "_transition_to_start"))
 	for node in $LevelSelect.get_children():
 		if "Level" in node.name:
 			node.connect("load_level", Callable(self, "_transition_to_play"))
@@ -97,6 +101,8 @@ func set_up_UI():
 		$StartScreen.vis()
 	elif game_settings.curr_state == game_settings.STATES.LEVEL_SELECT:
 		$LevelSelect.vis()
+	elif game_settings.curr_state == game_settings.STATES.CREDIT:
+		$CreditScreen.vis()
 		
 func _transition_to_levels():
 	game_settings.curr_state = game_settings.STATES.LEVEL_SELECT
@@ -136,6 +142,14 @@ func _transition_to_start():
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
 	
+func _transition_to_credit():
+	game_settings.curr_state = game_settings.STATES.CREDIT
+	$AnimationPlayer.play("transition_in")
+	await get_tree().create_timer(0.25).timeout
+	set_up_UI()
+	$AnimationPlayer.play("transition_out")
+	await get_tree().create_timer(0.25).timeout
+	
 func _transition_to_room(curr_room, new_room, curr_level, door):
 	$AnimationPlayer.play("transition_in")
 	await get_tree().create_timer(0.25).timeout
@@ -151,4 +165,7 @@ func reset_game_settings():
 	game_settings.found = false
 	game_settings.curr_room = "Bedroom"
 	$Player.reset_pos()
+	
+func save_to_file() -> void:
+	var status = ResourceSaver.save("game_data.tres", game_settings)
 	

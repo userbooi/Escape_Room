@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_ejmar")
-level = 3
+level = 1
 curr_level = 1
 curr_state = 0
 special_events = [["ReTa1", "Seat2", "Clos1", "SpPl1"], ["DoBe1", "TeVi2", "RoTa4", "Clos1", "Plan2", "WeCh1", "Seat2"], ["TeVi1", "TeVi3", "Plan1", "TeVi4", "Plan2", "Seat4", "Seat12", "TeVi5"]]
-event_num = 6
+event_num = 0
 found = false
 curr_room = "Bedroom"
 level_ready = [true, true, true]

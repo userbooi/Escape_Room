@@ -5,7 +5,7 @@ class_name GameSettings
 enum STATES {START, CREDIT, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 
 #===========================    TEST SETTINGS    ========================#
-@export var level = 3
+@export var level = 1
 @export var curr_level = 1
 @export var curr_state = STATES.START
 @export var special_events = [
@@ -17,7 +17,8 @@ enum STATES {START, CREDIT, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
 @export var found = false
 @export var curr_room = "Bedroom"
 @export var level_ready = [true, true, true]
-var DEBUG = true
+
+var DEBUG = false
 
 # spawn location format: [spawn location]
 var levels_spawn_locations = [

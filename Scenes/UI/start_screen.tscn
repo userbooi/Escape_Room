@@ -132,3 +132,4 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_s50j2")
 text = "Credit"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]

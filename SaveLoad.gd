@@ -1,5 +1,5 @@
-extends Control
-signal to_start
+extends Node
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,15 +9,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
-func vis() -> void:
-	visible = true
-	self_modulate.a = 1
-
-func invis():
-	visible = false
-	self_modulate.a = 0
-
-
-func _on_back_button_pressed() -> void:
-	to_start.emit()

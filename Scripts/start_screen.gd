@@ -1,5 +1,6 @@
 extends Control
 signal select_levels
+signal to_credit
 
 var game_settings = preload("res://game_setting/game_setting.tres")
 var scroll_speed = 200.0
@@ -28,3 +29,7 @@ func scroll_background(delta: float) -> void:
 	$Background/Background.position.y -= scroll_speed * delta
 	if $Background/Background.position.y < -640:
 		$Background/Background.position = Vector2.ZERO
+
+
+func _on_credit_button_pressed() -> void:
+	to_credit.emit()

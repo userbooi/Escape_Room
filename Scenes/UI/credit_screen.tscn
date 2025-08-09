@@ -26,6 +26,7 @@ offset_bottom = 721.0
 color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 219.0
 offset_top = 46.0
 offset_right = 934.0
@@ -36,6 +37,7 @@ bbcode_enabled = true
 text = "[b]Unfamiliar Rooms[/b]"
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 49.0
 offset_right = 129.0
@@ -46,3 +48,28 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wekg1")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mmphu")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0uq3j")
 text = "Back"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 184.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/normal_font = ExtResource("1_uejlv")
+theme_override_fonts/bold_font = ExtResource("1_uejlv")
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Map TileSet -- https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture -- Royalty Free License
+
+Font by The League of Moveable Type -- https://www.fontsquirrel.com/fonts/chunkfive -- SIL Open Font License v1.10
+
+Player Sprites and Dialogue box by Userboi
+
+Level Design by Userboi
+
+Programming by Userboi"
+fit_content = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
