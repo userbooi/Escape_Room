@@ -1,6 +1,8 @@
 extends Control
 signal done_dia
 
+var game_settings = preload("res://game_setting/game_setting.tres")
+
 @export var player: CharacterBody2D
 
 var camera: Camera2D
@@ -28,8 +30,12 @@ func _on_continue_button_pressed() -> void:
 		line_index += 1
 		assign_line()
 	else:
-		done_dia.emit()
-		visible = false
+		if game_settings.secret and game_settings.event_num == game_settings.special_events[3].size()-1:
+			done_dia.emit(true)
+			visible = false
+		else:
+			done_dia.emit(false)
+			visible = false
 	
 func set_lines(new_lines):
 	lines = new_lines

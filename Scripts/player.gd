@@ -1,5 +1,6 @@
 extends CharacterBody2D
 signal interact
+signal secret
 
 @export var SPEED = 300.0
 
@@ -32,9 +33,9 @@ func interacting():
 	if Input.is_action_just_pressed("interact") and interactable:
 		furn_name = $PlayerInteractArea.get_overlapping_areas()[0].get_parent().furniture_name
 		if game_settings.found:
-			if furn_name == game_settings.special_events[game_settings.curr_level-1][game_settings.event_num+1]:
+			if furn_name == game_settings.special_events[game_settings.curr_level-1][game_settings.event_num+1] and not game_settings.secret:
 				game_settings.event_num += 1
-			elif game_settings.curr_level == 3 or game_settings.event_num == 5:
+			elif (game_settings.curr_level == 3 and game_settings.event_num == 4) or game_settings.secret:
 				if furn_name == game_settings.special_events[3][game_settings.event_num+1]:
 					game_settings.secret = true
 					game_settings.event_num += 1
@@ -55,10 +56,13 @@ func interacting():
 		for node in get_tree().get_nodes_in_group("furnitures"):
 			node.queue_free()
 		
-func _return_from_dia():
-	movable = true
-	interactable = true
-	game_settings.curr_state = game_settings.STATES.PLAYING
+func _return_from_dia(freedom):
+	if not freedom:
+		movable = true
+		interactable = true
+		game_settings.curr_state = game_settings.STATES.PLAYING
+	else:
+		secret.emit()
 
 func change_anim(xdirection, ydirection):
 	if xdirection or ydirection:
@@ -141,6 +145,12 @@ func set_camera_limits(room, level):
 	else:
 		$Camera2D.limit_top = mid_coord.y - 324
 		$Camera2D.limit_bottom = mid_coord.y + 324
+	
+func inifinite_camera() -> void:
+	$Camera2D.limit_left = -10000000
+	$Camera2D.limit_top = -10000000
+	$Camera2D.limit_right = 10000000
+	$Camera2D.limit_bottom = 10000000
 	
 func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))

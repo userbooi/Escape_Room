@@ -5,9 +5,6 @@ var game_settings = preload("res://game_setting/game_setting.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_padding()
-	for node in get_child(3).get_children():
-		print(node.position, node.rotation)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,3 +41,11 @@ func set_padding(room, level):
 	$TopPad.position = Vector2(left-(1900 - room_width)/2, top-647)
 	$BottomPad.position = Vector2(left-(1900 - room_width)/2, bottom)
 	show_padding()
+	
+func disable_all_levels() -> void:
+	for child in get_children().slice(0, 3):
+		child.visible = false
+		child.get_child(1).collision_enabled = false
+	for child in get_child(3).get_children():
+		child.remove_from_group("furnitures")
+		child.queue_free()

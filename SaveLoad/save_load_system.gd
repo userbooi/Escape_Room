@@ -29,3 +29,8 @@ static func save_max_level(level, path):
 		data["max_level"] = level
 		save_to_json(path, data)
 		
+static func save_secret(found, path):
+	var data = load_from_json(path)
+	data["secret"] = found
+	save_to_json(path, data)
+		

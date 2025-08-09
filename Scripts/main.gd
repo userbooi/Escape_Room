@@ -42,6 +42,7 @@ func _ready() -> void:
 	var data = SaveLoadSystem.load_from_json("user://game_data.json")
 	game_settings.level = data["max_level"]
 	game_settings.secret = data["secret"]
+	configure_eternity()
 	connect_signals()
 	$Player.disable()
 	set_up_UI()
@@ -51,6 +52,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if game_settings.event_num == game_settings.special_events[game_settings.curr_level-1].size()-1 and game_settings.curr_state == game_settings.STATES.PLAYING:
+		SaveLoadSystem.save_max_level(game_settings.curr_level+1 if game_settings.curr_level<3 else 3, "user://game_data.json")
 		finish_game.emit()
 		$Player.interactable = false
 		$Player.movable = false
@@ -63,6 +65,7 @@ func connect_signals():
 	$StartScreen.connect("to_credit", Callable(self, "_transition_to_credit"))
 	$EndScreen.connect("back_to_start", Callable(self, "_transition_to_start"))
 	$CreditScreen.connect("to_start", Callable(self, "_transition_to_start"))
+	$Player.connect("secret", Callable(self, "_transition_to_eternity"))
 	for node in $LevelSelect.get_children():
 		if "Level" in node.name:
 			node.connect("load_level", Callable(self, "_transition_to_play"))
@@ -80,6 +83,8 @@ func set_up_level(level):
 		curr_furniture.set_location(game_settings.levels_layout[level-1][key][0], game_settings.levels_layout[level-1][key][1])
 		for line in game_settings.levels_layout[level-1][key][2]:
 			curr_furniture.special_lines.append(line)
+		for line in game_settings.levels_layout[level-1][key][3]:
+			curr_furniture.secret_lines.append(line)
 		curr_furniture.player = $Player
 		curr_furniture.connect_signal()
 		
@@ -132,7 +137,6 @@ func _transition_to_play(level):
 func _transition_to_start(from_credit):
 	$ColorRect.visible = false
 	if not from_credit:
-		SaveLoadSystem.save_max_level(game_settings.curr_level+1 if game_settings.curr_level<3 else 3, "user://game_data.json")
 		game_settings.level += 1
 		for child in get_tree().get_nodes_in_group("furnitures"):
 			child.remove_from_group("furnitures")
@@ -164,6 +168,19 @@ func _transition_to_room(curr_room, new_room, curr_level, door):
 	game_settings.curr_room = new_room
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
+	
+func configure_eternity() -> void:
+	$EternityRect.visible = false
+	$EternityRect.self_modulate.a = 1
+
+func _transition_to_eternity() -> void:
+	$AnimationPlayer.play("eternity")
+	await get_tree().create_timer(2).timeout
+	$Player.disable_light()
+	$Player.infinite_camera()
+	$Player.make_free()
+	$AnimationPlayer.play("eternity_out")
+	await get_tree().create_timer(1).timeout
 	
 func reset_game_settings():
 	game_settings.event_num = 0
