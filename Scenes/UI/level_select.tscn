@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://cb6juypjv7e0i"]
 
 [ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="1_eh6sm"]
-[ext_resource type="Script" path="res://Scenes/UI/level_select.gd" id="1_lx0vq"]
+[ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_lx0vq"]
 [ext_resource type="TileSet" uid="uid://dex1ha18xr7xw" path="res://Tilemaps/wallsAndGround.tres" id="2_4g4vp"]
 [ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="2_ar8n8"]
 [ext_resource type="Script" path="res://Scripts/level_button.gd" id="2_b4pv0"]

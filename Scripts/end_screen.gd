@@ -32,4 +32,4 @@ func invis():
 
 
 func _on_button_pressed() -> void:
-	back_to_start.emit()
+	back_to_start.emit(false)

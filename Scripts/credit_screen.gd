@@ -20,4 +20,4 @@ func invis():
 
 
 func _on_back_button_pressed() -> void:
-	to_start.emit()
+	to_start.emit(true)

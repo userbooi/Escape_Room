@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dogvglpil2rfx"]
 
-[ext_resource type="Script" path="res://Scenes/UI/credit_screen.gd" id="1_2q3or"]
+[ext_resource type="Script" path="res://Scripts/credit_screen.gd" id="1_2q3or"]
 [ext_resource type="FontFile" uid="uid://q0moed2w1t5n" path="res://Assets/fonts/Chunk Five Print.otf" id="1_trxuw"]
 [ext_resource type="FontFile" uid="uid://dcn1txn77a5kv" path="res://Assets/fonts/ChunkFive-Regular.otf" id="1_uejlv"]
 

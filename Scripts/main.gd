@@ -1,8 +1,8 @@
 extends Node2D
 signal finish_game
 
-var game_settings = GameSettings.new()
-var game_data
+var game_settings = preload("res://game_setting/game_setting.tres")
+var SaveLoadSystem = preload("res://SaveLoad/save_load_system.gd")
 
 @export var Furnitures: Dictionary = {
 	"Chai": preload("res://Scenes/AssetScenes/chair.tscn"),
@@ -39,6 +39,7 @@ var game_data
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	game_settings.level = SaveLoadSystem.load_from_json("user://game_data.json")["max_level"]
 	connect_signals()
 	$Player.disable()
 	set_up_UI()
@@ -126,12 +127,14 @@ func _transition_to_play(level):
 	$AnimationPlayer.play("transition_out")
 	await get_tree().create_timer(0.25).timeout
 	
-func _transition_to_start():
+func _transition_to_start(from_credit):
 	$ColorRect.visible = false
-	game_settings.level += 1
-	for child in get_tree().get_nodes_in_group("furnitures"):
-		child.remove_from_group("furnitures")
-		child.queue_free()
+	if not from_credit:
+		SaveLoadSystem.save_max_level(game_settings.curr_level+1 if game_settings.curr_level<3 else 3, "user://game_data.json")
+		game_settings.level += 1
+		for child in get_tree().get_nodes_in_group("furnitures"):
+			child.remove_from_group("furnitures")
+			child.queue_free()
 	game_settings.curr_state = game_settings.STATES.START
 	$AnimationPlayer.play("transition_in")
 	await get_tree().create_timer(0.25).timeout
@@ -165,7 +168,3 @@ func reset_game_settings():
 	game_settings.found = false
 	game_settings.curr_room = "Bedroom"
 	$Player.reset_pos()
-	
-func save_to_file() -> void:
-	var status = ResourceSaver.save("game_data.tres", game_settings)
-	

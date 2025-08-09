@@ -226,3 +226,5 @@ var levels_room_connections = [
 		}
 	},
 ]
+
+#var testing = [{"Level1": {"asd": "ASD"}, "LEvel2": {"123": {"123":Vector2(2, 3)}}}, {"LevelNa": [123]}]
