@@ -61,9 +61,13 @@ theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/normal_font_size = 17
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
-text = "[center]Map TileSet -- https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture -- Royalty Free License
+text = "[center]Map TileSet (Royalty Free License) -- https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture
 
-Font by The League of Moveable Type -- https://www.fontsquirrel.com/fonts/chunkfive -- SIL Open Font License v1.10
+Font by The League of Moveable Type (SIL Open Font License v1.10) -- https://www.fontsquirrel.com/fonts/chunkfive
+
+Sound Effects from ZapSplat (Standard License) --  https://www.zapsplat.com
+
+\"household_bathroom_vinyl_footsteps_walk_hard_bottom_trainers\" SFX track by Sonic SoundFX on ZapSplat (Standard License)
 
 Player Sprites and Dialogue box by Userboi
 

@@ -2,7 +2,7 @@ extends Node2D
 signal finish_game
 
 var game_settings = preload("res://game_setting/game_setting.tres")
-var SaveLoadSystem = preload("res://SaveLoad/save_load_system.gd")
+var SaveLoadSystem = preload("res://Util/save_load_system.gd")
 
 @export var Furnitures: Dictionary = {
 	"Chai": preload("res://Scenes/AssetScenes/chair.tscn"),
@@ -39,19 +39,35 @@ var SaveLoadSystem = preload("res://SaveLoad/save_load_system.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_data()
+	determine_game(game_settings.secret)
+
+func load_data() -> void:
 	var data = SaveLoadSystem.load_from_json("user://game_data.json")
-	game_settings.level = data["max_level"]
-	game_settings.secret = data["secret"]
-	configure_eternity()
-	connect_signals()
-	$Player.disable()
-	set_up_UI()
 	
-	#set_up_level(game_settings.level)
+	if "error" in data:
+		SaveLoadSystem.save_to_json("user://game_data.json", {"max_level": 1, "secret": false})
+	else:
+		game_settings.level = data["max_level"]
+		game_settings.secret = data["secret"]
+
+func determine_game(secret_found) -> void:
+	if not secret_found:
+		configure_eternity()
+		connect_signals()
+		$Player.disable()
+		set_up_UI()
+	else:
+		freedom()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if game_settings.event_num == game_settings.special_events[game_settings.curr_level-1].size()-1 and game_settings.curr_state == game_settings.STATES.PLAYING:
+	if game_settings.DEBUG and Input.is_action_just_pressed("testEternity"):
+		$Map.special()
+	if game_settings.curr_state == game_settings.STATES.SECRET:
+		if $Player.position.distance_to(Vector2.ZERO) > 1000:
+			$Player.reset_pos()
+	elif game_settings.event_num == game_settings.special_events[game_settings.curr_level-1].size()-1 and game_settings.curr_state == game_settings.STATES.PLAYING:
 		SaveLoadSystem.save_max_level(game_settings.curr_level+1 if game_settings.curr_level<3 else 3, "user://game_data.json")
 		finish_game.emit()
 		$Player.interactable = false
@@ -174,11 +190,22 @@ func configure_eternity() -> void:
 	$EternityRect.self_modulate.a = 1
 
 func _transition_to_eternity() -> void:
+	SaveLoadSystem.save_secret(true, "user://game_data.json")
+	game_settings.curr_state = game_settings.STATES.SECRET
 	$AnimationPlayer.play("eternity")
 	await get_tree().create_timer(2).timeout
+	for child in get_tree().get_nodes_in_group("furnitures"):
+		child.remove_from_group("furnitures")
+		child.queue_free()
+	for node in get_children().slice(0, 12):
+		if node.name != "Player" and node.name != "Map":
+			node.visible = false
+	$Player.reset_pos()
 	$Player.disable_light()
-	$Player.infinite_camera()
 	$Player.make_free()
+	$Player.enable()
+	$Map.disable_all_levels()
+	$Map.set_base("secret")
 	$AnimationPlayer.play("eternity_out")
 	await get_tree().create_timer(1).timeout
 	
@@ -187,3 +214,17 @@ func reset_game_settings():
 	game_settings.found = false
 	game_settings.curr_room = "Bedroom"
 	$Player.reset_pos()
+	
+func freedom() -> void:
+	game_settings.curr_state = game_settings.STATES.SECRET
+	for node in get_children().slice(0, 12):
+		if node.name != "Player" and node.name != "Map":
+			node.visible = false
+	$Player.reset_pos()
+	$Player.disable_light()
+	$Player.make_free()
+	$Player.enable()
+	$Map.disable_all_levels()
+	$Map.set_base("secret")
+	
+	

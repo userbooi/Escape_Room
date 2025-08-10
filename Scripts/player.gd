@@ -62,12 +62,15 @@ func _return_from_dia(freedom):
 		interactable = true
 		game_settings.curr_state = game_settings.STATES.PLAYING
 	else:
+		game_settings.curr_state = game_settings.STATES.SECRET
 		secret.emit()
 
 func change_anim(xdirection, ydirection):
 	if xdirection or ydirection:
+		$AudioStreamPlayer.play()
 		$AnimatedSprite2D.play("walk")
 	else:
+		$AudioStreamPlayer.stop()
 		$AnimatedSprite2D.play("Idle")
 		
 func change_dir(xdirection, ydirection):
@@ -146,11 +149,13 @@ func set_camera_limits(room, level):
 		$Camera2D.limit_top = mid_coord.y - 324
 		$Camera2D.limit_bottom = mid_coord.y + 324
 	
-func inifinite_camera() -> void:
+func make_free() -> void:
 	$Camera2D.limit_left = -10000000
 	$Camera2D.limit_top = -10000000
 	$Camera2D.limit_right = 10000000
 	$Camera2D.limit_bottom = 10000000
+	$Camera2D.limit_smoothed = false
+	$Camera2D.position_smoothing_enabled = false
 	
 func connect_signal(node: Node2D) -> void:
 	node.connect("interact", Callable(self, "_on_interact_prompt"))

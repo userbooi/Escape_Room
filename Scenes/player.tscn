@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://30ukmxapnx63"]
+[gd_scene load_steps=17 format=3 uid="uid://30ukmxapnx63"]
 
 [ext_resource type="Texture2D" uid="uid://cjjpm1srw6t25" path="res://Assets/player/pixil-frame-0.png" id="1_8mov5"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_h84ni"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrrod8s12uu4" path="res://Assets/player/pixil-frame-5.png" id="6_f8wcq"]
 [ext_resource type="Texture2D" uid="uid://ci1axotro7id8" path="res://Assets/player/pixil-frame-6.png" id="7_yxqix"]
 [ext_resource type="Texture2D" uid="uid://b2rld88iwryx6" path="res://Assets/player/pixil-frame-7.png" id="8_bivb2"]
+[ext_resource type="AudioStream" uid="uid://ccib8jjlf1mto" path="res://Assets/sounds/Sonic_Soundfx_household_bathroom_vinyl_footsteps_walk_hard_bottom_trainers.mp3" id="10_nv6d8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nyg4r"]
 animations = [{
@@ -76,12 +77,6 @@ scale = Vector2(0.35, 0.35)
 script = ExtResource("1_h84ni")
 metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1646.0
-offset_top = -926.0
-offset_right = 1646.0
-offset_bottom = 926.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nyg4r")
 animation = &"walk"
@@ -110,3 +105,6 @@ texture_scale = 13.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_pbe3p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nv6d8")

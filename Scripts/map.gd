@@ -2,22 +2,28 @@ extends Node2D
 
 var game_settings = preload("res://game_setting/game_setting.tres")
 
+@export var player: CharacterBody2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$EternityMap.visible = false
 	hide_padding()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$EternityMap.position = Vector2(player.position.x-1553.5, player.position.y-1169.5)
 
 func set_base(level):
-	for child in get_children().slice(0, 3):
-		if child.name == "Level" + str(level):
-			child.visible = true
-			child.get_child(1).collision_enabled = true
-		else:
-			child.visible = false
-			child.get_child(1).collision_enabled = false
+	if typeof(level) == typeof(2):
+		for child in get_children().slice(0, 3):
+			if child.name == "Level" + str(level):
+				child.visible = true
+				child.get_child(1).collision_enabled = true
+			else:
+				child.visible = false
+				child.get_child(1).collision_enabled = false
+	else:
+		$EternityMap.visible = true
 			
 func hide_padding():
 	for node in get_children().slice(4, 8):
@@ -49,3 +55,7 @@ func disable_all_levels() -> void:
 	for child in get_child(3).get_children():
 		child.remove_from_group("furnitures")
 		child.queue_free()
+		
+func special():
+	$Level1.visible = true
+	$EternityMap.visible = false

@@ -2,9 +2,9 @@ extends Resource
 
 class_name GameSettings
 
-enum STATES {START, CREDIT, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED}
+enum STATES {START, CREDIT, LEVEL_SELECT, PLAYING, DIALOGUE, FINISHED, SECRET}
 
-#===========================    TEST SETTINGS    ========================#
+#===========================    SETTINGS    ========================#
 @export var level = 1
 @export var curr_level = 1
 @export var secret = false
@@ -109,7 +109,7 @@ var levels_layout = [
 		"Plan6":[Vector2(1052, 1547), 0, [], []],
 		"TeVi3":[Vector2(183, 1745), PI*3/2, ["Staring into the TV, you are drawn to a far room", "The room houses a sole living entity"], []],
 		"Seat2":[Vector2(2343, 753), PI/4, [], ["You found the seat [b]FURTHEST[/b] from the TV", 
-											"[color=#660D0D]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting[/color]",
+											"[color=#660D0D][b][i]Interesting Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting Interesting[n]Interesting Interesting Interesting Interesting Interesting[/i][/b][/color]",
 											"Go to the TV at the end of the long hallway"]],
 		"Seat3":[Vector2(2427, 831), PI/4, [], []],
 		"Seat4":[Vector2(1737, 1400), PI*5/4, ["You found the seat of the cartoon's number 1 fan...", "The Character's phrase changed[br]They now say:", "[i]How many TVs have you interacted with here?[br]Go to the long hallway and sit in that chair on the right[/i]"], []],

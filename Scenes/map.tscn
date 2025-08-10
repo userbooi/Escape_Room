@@ -71,3 +71,10 @@ offset_top = 648.0
 offset_right = 1553.0
 offset_bottom = 1295.0
 color = Color(0, 0, 0, 1)
+
+[node name="EternityMap" type="ColorRect" parent="."]
+offset_left = -1005.0
+offset_top = -789.0
+offset_right = 2102.0
+offset_bottom = 1550.0
+color = Color(0.716296, 0.716296, 0.716296, 1)
